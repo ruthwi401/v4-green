@@ -3,769 +3,306 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#063d2d">
-<title>Green Mart V4 | Everything for Everyday</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#06442f">
+<title>Green Mart V4 — Shop More. Save More.</title>
 <style>
-:root {
-  --green:#08784e;
-  --deep:#063d2d;
-  --lime:#baf45b;
-  --cream:#fbf8ef;
-  --ink:#17362c;
-  --muted:#718079;
-  --white:#fff;
-  --shadow:0 12px 35px #103f2810;
-}
+:root{--green:#08784c;--dark:#063c2b;--lime:#d5ff83;--ink:#18382c;--muted:#74867b}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  margin:0;color:var(--ink);
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,
-  BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:
-    radial-gradient(ellipse at 4% 13%,#b8e9bb80,transparent 32%),
-    radial-gradient(ellipse at 96% 29%,#f6dcb970,transparent 30%),
-    radial-gradient(ellipse at 15% 58%,#c8e6d780,transparent 32%),
-    radial-gradient(ellipse at 91% 78%,#e4d7f780,transparent 30%),
-    linear-gradient(140deg,#f7f8ed,#eef6ee 45%,#fff8ef);
-  background-attachment:fixed;
-  overflow-x:hidden;
-}
-button,input{font:inherit}
-button{cursor:pointer}
-a{color:inherit;text-decoration:none}
-button:focus-visible,a:focus-visible,input:focus-visible{
-  outline:3px solid #b5e85d;outline-offset:3px
-}
-::selection{background:#baf45b;color:#073c2b}
-.ambient{
-  position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden
-}
-.orb{position:absolute;border-radius:50%;filter:blur(2px);opacity:.4;
-  animation:float 16s ease-in-out infinite alternate}
-.orb.one{width:270px;height:270px;left:-120px;top:25%;
-  background:radial-gradient(circle,#9ce6b0,transparent 70%)}
-.orb.two{width:350px;height:350px;right:-150px;top:52%;
-  background:radial-gradient(circle,#f6d4a4,transparent 70%);
-  animation-delay:-5s}
-.orb.three{width:280px;height:280px;left:36%;bottom:-150px;
-  background:radial-gradient(circle,#b4dfd0,transparent 70%);
-  animation-delay:-9s}
-@keyframes float{to{transform:translate(35px,-45px) scale(1.12)}}
-.top-strip{
-  background:#032c20;color:#eaffdf;text-align:center;
-  padding:9px 12px;font-size:12px;letter-spacing:.35px
-}
-.top-strip strong{color:#c6ff76}
-.header{
-  background:linear-gradient(115deg,#06412e,#08774c 62%,#075b3c);
-  color:white;position:sticky;top:0;z-index:20;
-  box-shadow:0 8px 24px #002c1c25
-}
-.head-main{
-  max-width:1440px;margin:auto;padding:15px 4%;
-  display:flex;align-items:center;gap:22px
-}
-.brand{display:flex;align-items:center;gap:10px;min-width:195px}
-.brand-mark{
-  width:45px;height:45px;border-radius:15px;
-  display:grid;place-items:center;font-size:27px;
-  background:linear-gradient(145deg,#d5ff84,#76dc50);
-  box-shadow:0 5px 18px #9aff6533
-}
-.brand-name{font-size:23px;font-weight:850;letter-spacing:-.8px}
-.brand-sub{font-size:10px;color:#d3e9dc;letter-spacing:1px}
-.search{
-  display:flex;align-items:center;gap:10px;background:#fff;
-  color:#52675d;border-radius:14px;padding:5px 7px 5px 16px;
-  flex:1;max-width:670px;box-shadow:0 4px 16px #002e1b24
-}
-.search span{font-size:20px}
-.search input{border:0;outline:none;min-width:0;flex:1;
-  padding:10px 0;color:#183a2d;background:transparent;font-size:13px}
-.search button{
-  background:var(--green);color:#fff;border:0;border-radius:10px;
-  padding:10px 17px;font-weight:750
-}
-.header-action{
-  background:transparent;border:0;color:#fff;display:flex;
-  align-items:center;gap:7px;font-size:12px;font-weight:650;
-  white-space:nowrap
-}
-.cart-button{position:relative;font-size:23px}
-.cart-count{
-  position:absolute;top:-9px;right:-10px;background:#ff674e;
-  color:white;border-radius:50%;font-size:10px;min-width:19px;
-  height:19px;display:grid;place-items:center;font-weight:800
-}
-.nav{
-  border-top:1px solid #ffffff18;background:#003e2b77;
-  display:flex;gap:0;justify-content:center;overflow-x:auto;
-  scrollbar-width:none
-}
-.nav a,.nav button{
-  color:#f0fff5;border:0;background:transparent;padding:13px 15px;
-  font-size:12px;font-weight:700;white-space:nowrap
-}
-.nav a:hover,.nav button:hover{background:#ffffff16;color:#d5ff84}
-.wrap{max-width:1440px;margin:auto;padding:26px 4% 42px}
-.hero{
-  position:relative;overflow:hidden;min-height:365px;
-  display:grid;grid-template-columns:1.05fr .95fr;
-  border-radius:27px;
-  background:
-    radial-gradient(ellipse at 82% 45%,#53a76d 0,transparent 37%),
-    radial-gradient(ellipse at 90% 110%,#b6d16c 0,transparent 38%),
-    linear-gradient(120deg,#043b29,#08794a 58%,#165e3c);
-  color:white;box-shadow:0 22px 55px #07573829;
-  border:1px solid #ffffff85
-}
-.hero:before{
-  content:"";position:absolute;inset:0;opacity:.14;
-  background-image:radial-gradient(#d9ffbc 1px,transparent 1px);
-  background-size:23px 23px;mask-image:linear-gradient(90deg,black,transparent)
-}
-.hero:after{
-  content:"";position:absolute;width:420px;height:420px;border-radius:50%;
-  border:1px solid #d9ffbc2a;right:-80px;top:-160px;
-  box-shadow:0 0 0 35px #d9ffbc09,0 0 0 70px #d9ffbc08
-}
-.hero-copy{padding:45px 0 40px 8%;align-self:center;z-index:2}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:8px;padding:8px 12px;
-  border:1px solid #ffffff35;background:#ffffff12;border-radius:30px;
-  font-size:11px;font-weight:800;letter-spacing:1.1px
-}
-.eyebrow i{width:7px;height:7px;border-radius:50%;background:#c9ff79}
-.hero h1{font-size:clamp(36px,4.5vw,64px);line-height:1.02;
-  letter-spacing:-2.8px;margin:22px 0 14px;max-width:550px}
-.hero h1 span{color:#d3ff76}
-.hero p{color:#e0f1e4;max-width:430px;line-height:1.8;font-size:14px}
-.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
-.primary,.secondary{
-  padding:13px 19px;border-radius:12px;border:0;font-weight:800;
-  font-size:13px;transition:transform .2s,box-shadow .2s
-}
-.primary{background:#d3ff76;color:#123d26;box-shadow:0 7px 18px #001f1630}
-.secondary{background:#ffffff13;border:1px solid #ffffff50;color:white}
-.primary:hover,.secondary:hover{transform:translateY(-3px)}
-.hero-visual{position:relative;display:grid;place-items:center;min-height:310px}
-.hero-disc{
-  position:absolute;width:min(32vw,330px);aspect-ratio:1;border-radius:50%;
-  background:radial-gradient(circle at 35% 30%,#e8ffbc,#7fce74 54%,#28784c);
-  box-shadow:inset -22px -25px 45px #174e3233,0 25px 65px #002d1b4a
-}
-.hero-photo{
-  width:82%;height:83%;object-fit:cover;position:relative;z-index:1;
-  border-radius:48% 48% 40% 40%;mix-blend-mode:normal;
-  filter:drop-shadow(0 20px 22px #002a1c3b)
-}
-.hero-tag{
-  position:absolute;z-index:3;right:7%;top:17%;border-radius:17px;
-  background:#fff;color:#15513a;padding:15px 19px;transform:rotate(5deg);
-  box-shadow:0 13px 35px #002d1c2a
-}
-.hero-tag b{display:block;font-size:25px;color:#e4552c}
-.hero-tag small{font-size:10px;font-weight:750}
-.hero-sticker{
-  position:absolute;z-index:3;bottom:13%;left:3%;background:#d7ff81;
-  color:#12462e;border-radius:50%;width:87px;height:87px;
-  display:grid;place-items:center;text-align:center;transform:rotate(-12deg);
-  font-size:12px;font-weight:900;box-shadow:0 10px 22px #002d1c30
-}
-.hero-dots{display:flex;gap:6px;margin-top:18px}
-.hero-dots i{width:7px;height:7px;border-radius:9px;background:#ffffff65}
-.hero-dots i:first-child{width:24px;background:#d3ff76}
-.trust-row{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0 36px
-}
-.trust{
-  display:flex;align-items:center;gap:12px;padding:15px 16px;
-  background:#ffffffb8;border:1px solid #ffffffd6;border-radius:16px;
-  box-shadow:0 8px 25px #16432a08;backdrop-filter:blur(12px)
-}
-.trust-icon{width:42px;height:42px;display:grid;place-items:center;
-  border-radius:13px;background:#e5f6e3;font-size:21px}
-.trust b{font-size:12px;display:block}
-.trust small{font-size:10px;color:var(--muted);display:block;margin-top:4px}
-.section{margin:34px 0 40px}
-.section-head{display:flex;align-items:end;justify-content:space-between;
-  gap:14px;margin-bottom:17px}
-.section-title{font-size:clamp(21px,2.4vw,29px);letter-spacing:-.8px;margin:0}
-.section-sub{font-size:12px;color:var(--muted);margin:7px 0 0}
-.view-all{border:0;background:#fff;border-radius:10px;padding:10px 13px;
-  font-size:12px;font-weight:800;color:#08784e;box-shadow:var(--shadow)}
-.category-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:13px}
-.category{
-  border:1px solid #ffffff;min-width:0;position:relative;overflow:hidden;
-  border-radius:18px;padding:17px 8px 15px;text-align:center;
-  background:linear-gradient(145deg,#ffffffed,#f5fff1c9);
-  box-shadow:0 8px 25px #194a2b0a;transition:.22s
-}
-.category:before{content:"";position:absolute;inset:0;background:
-  radial-gradient(circle at 50% 0%,var(--tint,#d7f3d5),transparent 65%);
-  opacity:.7}
-.category:hover{transform:translateY(-5px);box-shadow:0 15px 30px #17472b16}
-.category-icon{position:relative;display:grid;place-items:center;
-  width:70px;height:70px;border-radius:24px;margin:0 auto 12px;
-  font-size:35px;background:#ffffffc9;box-shadow:0 6px 20px #163e240c}
-.category b{position:relative;font-size:11px;line-height:1.45;display:block}
-.category small{position:relative;display:block;font-size:10px;color:#7a8d81;margin-top:5px}
-.deal-strip{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:38px 0
-}
-.deal-tile{
-  position:relative;overflow:hidden;min-height:175px;border-radius:21px;
-  padding:24px;color:white;display:flex;align-items:center;
-  box-shadow:0 13px 28px #203d2a14;isolation:isolate
-}
-.deal-tile:before{
-  content:"";position:absolute;inset:0;z-index:-1;
-  background:radial-gradient(circle at 95% 20%,#ffffff38,transparent 38%),
-  radial-gradient(circle at 75% 120%,#ffffff23,transparent 50%)
-}
-.deal-tile:after{
-  content:"";position:absolute;width:180px;height:180px;border-radius:50%;
-  right:-42px;bottom:-70px;border:1px solid #ffffff52;
-  box-shadow:0 0 0 18px #ffffff10,0 0 0 36px #ffffff0a;z-index:-1
-}
-.deal-tile.purple{background:linear-gradient(120deg,#48208b,#8836be)}
-.deal-tile.rose{background:linear-gradient(120deg,#a72f56,#ee8b9b)}
-.deal-tile.gold{background:linear-gradient(120deg,#b55a0c,#f5a52d)}
-.deal-tile h3{font-size:25px;line-height:1.12;margin:10px 0}
-.deal-tile p{font-size:11px;opacity:.9}
-.deal-tile strong{font-size:33px;letter-spacing:-1px}
-.deal-tile button{border:0;background:#fff;color:#3c3043;
-  padding:10px 14px;border-radius:10px;font-size:11px;font-weight:850}
-.deal-art{position:absolute;right:5%;bottom:7%;font-size:73px;
-  filter:drop-shadow(0 12px 14px #2a102c30);transform:rotate(-9deg)}
-.products{
-  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:15px
-}
-.product{
-  min-width:0;position:relative;overflow:hidden;border-radius:18px;
-  background:#ffffffdb;border:1px solid #ffffff;
-  box-shadow:0 7px 23px #16432a0b;transition:transform .2s,box-shadow .2s;
-  backdrop-filter:blur(10px)
-}
-.product:hover{transform:translateY(-4px);box-shadow:0 15px 32px #16432a17}
-.product-image{
-  height:170px;position:relative;display:grid;place-items:center;
-  overflow:hidden;background:linear-gradient(145deg,#f0f8e9,#fff9ee)
-}
-.product-image img{width:100%;height:100%;object-fit:contain;
-  padding:15px;transition:transform .3s}
-.product:hover .product-image img{transform:scale(1.06)}
-.discount{
-  position:absolute;left:10px;top:10px;border-radius:7px;
-  background:#08784e;color:white;font-size:10px;font-weight:850;padding:6px 8px
-}
-.wish{
-  position:absolute;right:9px;top:9px;border:0;background:#ffffffed;
-  border-radius:50%;width:32px;height:32px;font-size:17px;color:#496458;
-  box-shadow:0 3px 10px #123a2010
-}
-.wish.active{color:#e84b68}
-.product-info{padding:12px}
-.product-brand{font-size:9px;text-transform:uppercase;letter-spacing:.8px;
-  color:#829087;font-weight:800}
-.product h3{font-size:12px;line-height:1.45;min-height:34px;margin:6px 0}
-.pack{font-size:10px;color:#89938d}
-.price-line{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:9px}
-.price{font-size:17px;font-weight:900;letter-spacing:-.5px;color:#086541}
-.old-price{font-size:10px;color:#9ba39d;text-decoration:line-through}
-.save{font-size:9px;color:#0a8b50;font-weight:800}
-.rating{font-size:10px;color:#d28a12;margin-top:9px}
-.rating span{color:#849087}
-.add{
-  width:100%;border:0;border-radius:10px;margin-top:12px;padding:10px 5px;
-  background:linear-gradient(110deg,#086747,#0a8d59);color:#fff;
-  font-size:11px;font-weight:800;transition:.2s
-}
-.add:hover{background:#064a34}
-.add.added{background:#e1f5dd;color:#11653f}
-.product-placeholder{
-  font-size:67px;filter:drop-shadow(0 8px 7px #23452b12)
-}
-.fresh-panel{
-  padding:23px;border-radius:24px;
-  background:linear-gradient(125deg,#dff3dbdd,#fffdf2df);
-  border:1px solid #ffffff;box-shadow:var(--shadow)
-}
-.fresh-panel .product-image{background:#ffffffb5}
-.wide-promo{
-  display:grid;grid-template-columns:1fr 1fr;align-items:center;
-  gap:20px;overflow:hidden;position:relative;margin:38px 0;
-  border-radius:24px;padding:32px 6%;
-  background:radial-gradient(ellipse at 85% 50%,#45a66b,transparent 42%),
-  linear-gradient(115deg,#063d2d,#08744b);color:#fff
-}
-.wide-promo h2{font-size:clamp(25px,3vw,39px);letter-spacing:-1.4px;margin:12px 0}
-.wide-promo p{font-size:13px;color:#d6eee0;line-height:1.7}
-.wide-promo .big-emoji{font-size:clamp(80px,12vw,145px);text-align:center;
-  filter:drop-shadow(0 18px 15px #00271a40)}
-.mini-label{font-size:10px;letter-spacing:1.3px;font-weight:900;color:#d6ff85}
-.promo-circles{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
-.promo-circles span{font-size:10px;background:#ffffff18;border:1px solid #ffffff25;
-  border-radius:25px;padding:8px 10px}
-.empty-state{padding:28px;text-align:center;color:var(--muted);
-  background:#ffffffa8;border-radius:15px;grid-column:1/-1}
-.footer{
-  background:
-  radial-gradient(circle at 100% 0%,#147c4c70,transparent 32%),
-  radial-gradient(circle at 0% 100%,#12634360,transparent 30%),
-  linear-gradient(120deg,#032c20,#064431);
-  color:#fff;padding:42px 4% 20px
-}
-.footer-inner{max-width:1300px;margin:auto}
-.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px}
-.footer h3{font-size:13px;margin:0 0 15px}
-.footer p,.footer a{font-size:11px;color:#c3dbcd;line-height:1.9}
-.footer-links{display:grid;gap:6px}
-.footer a:hover{color:#d6ff85}
-.footer-bottom{border-top:1px solid #ffffff25;margin-top:30px;padding-top:17px;
-  display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
-  font-size:10px;color:#a8c5b3}
-.toast{
-  position:fixed;bottom:24px;left:50%;transform:translate(-50%,25px);
-  opacity:0;pointer-events:none;z-index:60;background:#073d2c;color:#fff;
-  padding:13px 19px;border-radius:13px;font-size:12px;font-weight:750;
-  box-shadow:0 12px 30px #002b1c35;transition:.25s
-}
+body{margin:0;color:var(--ink);font-family:Inter,Arial,sans-serif;
+background:
+radial-gradient(ellipse at 4% 15%,#b4e7b7 0,transparent 29%),
+radial-gradient(ellipse at 98% 35%,#f4d9b7 0,transparent 27%),
+radial-gradient(ellipse at 12% 70%,#c2e8d1 0,transparent 30%),
+radial-gradient(ellipse at 90% 85%,#d9c9f3 0,transparent 25%),
+linear-gradient(135deg,#f4f7e9,#e8f3e9 48%,#fff5e8);
+background-attachment:fixed}
+button,input{font:inherit}button{cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid #b5ee62}
+.top{background:#022d20;color:#e9ffdd;text-align:center;padding:9px;font-size:12px}
+.top b{color:#d4ff7a}
+header{position:sticky;top:0;z-index:10;background:linear-gradient(110deg,#043c2a,#08774b);color:white;box-shadow:0 8px 25px #053c2b35}
+.head{max-width:1450px;margin:auto;padding:13px 4%;display:flex;gap:20px;align-items:center}
+.brand{display:flex;gap:9px;align-items:center;min-width:180px}
+.logo{display:grid;place-items:center;width:43px;height:43px;border-radius:15px;background:linear-gradient(145deg,#e1ff91,#71d84c);font-size:25px}
+.brand b{font-size:22px;letter-spacing:-.8px}.brand small{display:block;font-size:9px;letter-spacing:1px;color:#d8f3df;margin-top:4px}
+.search{flex:1;display:flex;gap:8px;align-items:center;background:white;border-radius:13px;padding:5px 6px 5px 14px;max-width:670px;color:#436051}
+.search input{border:0;outline:0;min-width:0;flex:1;padding:10px 0;font-size:13px}
+.search button{border:0;border-radius:9px;background:#08784c;color:white;padding:10px 15px;font-weight:800}
+.head button.action{border:0;background:transparent;color:white;font-size:12px;font-weight:700;white-space:nowrap}
+nav{display:flex;overflow:auto;scrollbar-width:none;justify-content:center;background:#003b2977;border-top:1px solid #ffffff25}
+nav a{padding:13px 15px;color:white;text-decoration:none;font-size:12px;font-weight:750;white-space:nowrap}
+nav a:hover{background:#ffffff18;color:#d5ff83}
+main{max-width:1450px;margin:auto;padding:24px 4% 45px}
+.hero{min-height:350px;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;border-radius:26px;color:white;
+background:radial-gradient(ellipse at 85% 30%,#67b958,transparent 36%),radial-gradient(ellipse at 70% 110%,#b7d66a,transparent 38%),linear-gradient(115deg,#033b28,#08794b 64%,#145b3a);
+box-shadow:0 22px 55px #06452d35;border:1px solid #ffffffaa}
+.hero:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#d8ffb8 1px,transparent 1px);background-size:20px 20px;opacity:.13}
+.hero-copy{padding:40px 0 38px 8%;align-self:center;z-index:1}
+.pill{display:inline-block;border:1px solid #ffffff48;background:#ffffff14;padding:8px 12px;border-radius:30px;font-size:10px;font-weight:800;letter-spacing:1px}
+.hero h1{font-size:clamp(37px,5vw,65px);line-height:1.02;letter-spacing:-3px;margin:19px 0 13px}
+.hero h1 em{font-style:normal;color:#d9ff75}
+.hero p{max-width:420px;color:#e1f4e5;font-size:14px;line-height:1.8}
+.ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.primary,.outline{padding:13px 18px;border:0;border-radius:11px;font-size:12px;font-weight:850}
+.primary{background:#d7ff81;color:#103d27;box-shadow:0 8px 20px #002a1d33}
+.outline{background:#ffffff14;color:white;border:1px solid #ffffff60}
+.hero-art{display:grid;place-items:center;position:relative;min-height:300px}
+.produce{font-size:clamp(100px,15vw,185px);filter:drop-shadow(0 25px 15px #002f1c50);z-index:1;animation:bob 4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-9px) rotate(2deg)}}
+.circle{position:absolute;width:290px;height:290px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#efffb8,#7cc96c 58%,#237347);box-shadow:0 0 0 22px #ffffff0b,0 0 0 48px #ffffff08}
+.hero-sticker{position:absolute;z-index:2;right:7%;top:15%;background:#fff;color:#165238;padding:14px 17px;border-radius:14px;transform:rotate(5deg);box-shadow:0 12px 30px #002d1c33}
+.hero-sticker strong{display:block;font-size:30px;color:#ed5735}.hero-sticker small{font-size:10px;font-weight:800}
+.round-sticker{position:absolute;z-index:2;left:4%;bottom:9%;background:#d7ff81;color:#15442e;border-radius:50%;width:83px;height:83px;display:grid;place-items:center;text-align:center;font-size:12px;font-weight:900;transform:rotate(-10deg)}
+.perks{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 34px}
+.perk{display:flex;align-items:center;gap:11px;padding:14px;background:#ffffffa8;backdrop-filter:blur(10px);border:1px solid #ffffffd9;border-radius:15px;box-shadow:0 7px 25px #173f250a}
+.perk span{font-size:24px}.perk b{font-size:11px;display:block}.perk small{font-size:10px;color:var(--muted);display:block;margin-top:4px}
+.section{margin:36px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:10px;margin-bottom:16px}
+.section h2{font-size:clamp(21px,2.5vw,29px);letter-spacing:-.8px;margin:0}
+.section-head p{font-size:12px;color:#61786b;margin:7px 0 0}
+.linkbtn{border:1px solid #ffffff;background:#ffffffc9;border-radius:10px;padding:10px 13px;color:#08784c;font-weight:800;font-size:11px}
+.categories{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:12px}
+.cat{border:1px solid #ffffff;background:linear-gradient(145deg,#ffffffdb,#f3fff0b8);border-radius:17px;padding:14px 5px;text-align:center;box-shadow:0 7px 23px #21462d0c;transition:.2s;min-width:0}
+.cat:hover{transform:translateY(-5px);box-shadow:0 14px 25px #21462d20}
+.cat span{width:62px;height:62px;border-radius:22px;background:var(--tint);display:grid;place-items:center;margin:0 auto 10px;font-size:31px}
+.cat b{font-size:10px;line-height:1.4;display:block}
+.sale-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:25px 0}
+.sale{position:relative;isolation:isolate;overflow:hidden;min-height:170px;padding:23px;border-radius:19px;color:white;box-shadow:0 12px 27px #173f251a}
+.sale:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 90% 10%,#ffffff55,transparent 35%),radial-gradient(circle at 90% 110%,#ffffff28,transparent 45%)}
+.sale:after{content:"";position:absolute;z-index:-1;width:150px;height:150px;border:1px solid #ffffff52;border-radius:50%;right:-30px;bottom:-65px;box-shadow:0 0 0 20px #ffffff0e,0 0 0 40px #ffffff09}
+.purple{background:linear-gradient(120deg,#441b8c,#8e32c5)}
+.pink{background:linear-gradient(120deg,#a92d57,#f18caa)}
+.orange{background:linear-gradient(120deg,#a74b0b,#f5a72f)}
+.sale small{font-size:10px;font-weight:850;letter-spacing:1px}
+.sale h3{font-size:24px;line-height:1.12;margin:10px 0}
+.sale strong{color:#fff184}
+.sale p{font-size:11px}
+.sale button{border:0;background:white;color:#433047;border-radius:9px;padding:9px 12px;font-size:10px;font-weight:850}
+.sale .art{position:absolute;right:5%;bottom:5%;font-size:66px;filter:drop-shadow(0 9px 9px #2d153a38)}
+.products{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.product{min-width:0;border:1px solid #ffffff;background:#ffffffd9;backdrop-filter:blur(10px);border-radius:17px;overflow:hidden;box-shadow:0 8px 24px #163e270c;transition:.2s}
+.product:hover{transform:translateY(-4px);box-shadow:0 15px 30px #163e2720}
+.photo{height:155px;display:grid;place-items:center;position:relative;background:radial-gradient(circle at 50% 45%,#ffffff,#e3f2df)}
+.photo img{width:100%;height:100%;object-fit:contain;padding:12px}
+.emoji{font-size:65px;filter:drop-shadow(0 8px 6px #153b2317)}
+.discount{position:absolute;top:9px;left:9px;background:#078347;color:white;border-radius:6px;padding:6px 7px;font-size:10px;font-weight:900}
+.heart{position:absolute;right:8px;top:8px;width:29px;height:29px;border:0;border-radius:50%;background:#fff;font-size:17px;color:#51675b}
+.info{padding:11px}
+.brandline{font-size:9px;text-transform:uppercase;letter-spacing:.7px;color:#829087;font-weight:800}
+.info h3{font-size:12px;line-height:1.4;margin:6px 0;min-height:31px}
+.pack{font-size:10px;color:#859187}
+.prices{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.price{font-size:17px;font-weight:900;color:#086441}
+.old{text-decoration:line-through;color:#929c94;font-size:10px}
+.saving{font-size:10px;color:#078348;font-weight:800;margin-top:5px}
+.rating{font-size:10px;color:#df9515;margin-top:8px}
+.rating span{color:#7e8d83}
+.add{margin-top:10px;width:100%;border:0;border-radius:9px;background:linear-gradient(100deg,#086747,#0a8a58);color:white;padding:10px 5px;font-size:11px;font-weight:850}
+.add:hover{background:#03442e}
+.promo-wide{display:grid;grid-template-columns:1fr .7fr;align-items:center;overflow:hidden;position:relative;padding:30px 6%;border-radius:23px;color:white;background:radial-gradient(ellipse at 90% 30%,#45a76a,transparent 43%),linear-gradient(120deg,#033a29,#08774b);box-shadow:0 17px 40px #06452d25}
+.promo-wide h2{font-size:clamp(26px,3vw,40px);line-height:1.1;margin:12px 0}
+.promo-wide p{font-size:12px;color:#d6eee0;line-height:1.8;max-width:430px}
+.promo-wide .art{font-size:clamp(75px,12vw,145px);text-align:center;filter:drop-shadow(0 20px 15px #002a1b4a)}
+.promo-wide .eyebrow{font-size:10px;letter-spacing:1.3px;color:#d9ff91}
+.promo-tags{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}
+.promo-tags span{padding:8px 10px;border:1px solid #ffffff30;background:#ffffff10;border-radius:20px;font-size:10px}
+.fresh{padding:19px;border:1px solid white;border-radius:22px;background:linear-gradient(120deg,#dff2d8e8,#fff8e9e8);box-shadow:0 12px 30px #1a4b280c}
+footer{background:radial-gradient(ellipse at 100% 0,#13784d88,transparent 35%),linear-gradient(115deg,#032b20,#06452f);color:white;padding:38px 5% 18px}
+.footer{max-width:1350px;margin:auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:28px}
+footer h3{font-size:13px}footer p,footer a{font-size:11px;color:#c7dfcf;line-height:1.9}
+.footer-links{display:grid;gap:4px}
+footer a{text-decoration:none}footer a:hover{color:#d8ff82}
+.bottom{max-width:1350px;margin:25px auto 0;padding-top:15px;border-top:1px solid #ffffff28;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:#b8d1c0;font-size:10px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#063d2b;color:white;border-radius:12px;padding:13px 18px;font-size:12px;font-weight:800;z-index:50;transition:.2s;box-shadow:0 8px 25px #001c1440}
 .toast.show{opacity:1;transform:translate(-50%,0)}
-.mobile-bottom{display:none}
-.cart-drawer{
-  position:fixed;inset:0;z-index:50;display:none;
-  background:#001b1480;backdrop-filter:blur(5px);justify-content:flex-end
-}
-.cart-drawer.open{display:flex}
-.cart-panel{background:#fbfff9;width:min(430px,100%);height:100%;
-  padding:23px;overflow:auto;box-shadow:-15px 0 40px #001b1430}
-.cart-top{display:flex;justify-content:space-between;align-items:center}
-.cart-top h2{font-size:22px}
-.close-cart{border:0;background:#eaf3e8;border-radius:10px;padding:9px 12px}
-.cart-items{display:grid;gap:12px;margin:20px 0}
-.cart-item{display:grid;grid-template-columns:54px 1fr auto;gap:12px;
-  align-items:center;background:#fff;border:1px solid #e7eee4;border-radius:12px;padding:10px}
-.cart-item .emoji{font-size:31px}
-.cart-item b{font-size:12px}
-.cart-item small{display:block;color:#75857a;margin-top:5px;font-size:10px}
-.qty{display:flex;align-items:center;gap:8px;margin-top:7px}
-.qty button{border:1px solid #dbe8d9;background:#f4faf1;border-radius:6px;
-  width:25px;height:25px}
-.cart-total{border-top:1px solid #dfe9dd;padding-top:16px}
-.total-line{display:flex;justify-content:space-between;margin:10px 0;font-size:13px}
-.total-line strong{font-size:18px}
-.checkout-note{font-size:10px;color:#78857b;line-height:1.6;margin:12px 0}
-@media(max-width:1050px){
- .head-main{gap:12px}.brand{min-width:auto}.brand-sub{display:none}
- .header-action .action-text{display:none}
- .category-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
- .products{grid-template-columns:repeat(4,minmax(0,1fr))}
- .product-image{height:155px}
- .trust-row{grid-template-columns:repeat(2,1fr)}
-}
+.drawer{display:none;position:fixed;inset:0;z-index:40;background:#001b1480;justify-content:flex-end}
+.drawer.open{display:flex}
+.panel{width:min(420px,100%);height:100%;overflow:auto;background:#f7fff5;padding:22px}
+.panel-head{display:flex;justify-content:space-between;align-items:center}
+.panel-head h2{font-size:22px}
+.panel-head button{border:0;padding:9px;border-radius:8px}
+.cart-items{display:grid;gap:10px;margin:20px 0}
+.cart-item{display:grid;grid-template-columns:45px 1fr auto;gap:10px;align-items:center;background:white;border:1px solid #e1ebdf;border-radius:12px;padding:10px}
+.cart-item b{font-size:12px}.cart-item small{display:block;font-size:10px;color:#748579;margin:5px 0}
+.qty{display:flex;gap:8px;align-items:center}.qty button{border:1px solid #d9e5d6;border-radius:6px;background:#f4faef;width:25px;height:25px}
+.total{border-top:1px solid #dce7da;padding-top:13px;font-size:13px}
+.mobile{display:none}
+@media(max-width:1050px){.categories{grid-template-columns:repeat(4,1fr)}.products{grid-template-columns:repeat(4,minmax(0,1fr))}.brand{min-width:auto}.brand small{display:none}.head{gap:12px}}
 @media(max-width:680px){
- .top-strip{font-size:10px}
- .head-main{padding:11px 4%;display:grid;grid-template-columns:1fr auto;gap:11px}
- .brand-name{font-size:19px}.brand-mark{width:38px;height:38px;font-size:23px}
- .search{grid-column:1/-1;grid-row:2;max-width:none}
- .search button{padding:9px 12px}
- .header-action{padding:5px}.nav{justify-content:flex-start}
- .nav a,.nav button{padding:12px 13px;font-size:11px}
- .wrap{padding:17px 4% 28px}
- .hero{grid-template-columns:1fr;min-height:0}
- .hero-copy{padding:30px 25px 12px}
- .hero h1{font-size:43px;letter-spacing:-2px}
- .hero p{font-size:12px}
- .hero-visual{min-height:230px}
- .hero-disc{width:210px}
- .hero-photo{width:67%;height:90%;max-height:225px}
- .hero-tag{right:7%;top:5%;padding:10px 12px}
- .hero-tag b{font-size:20px}
- .hero-sticker{width:68px;height:68px;font-size:10px;left:8%;bottom:9%}
- .trust-row{gap:8px;margin:15px 0 27px}
- .trust{padding:11px;gap:8px}.trust-icon{width:34px;height:34px;font-size:17px}
- .trust b{font-size:10px}.trust small{font-size:9px}
- .section{margin:27px 0 30px}
- .section-head{align-items:center}
- .section-title{font-size:21px}.section-sub{font-size:10px}
- .category-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
- .category{padding:12px 4px;border-radius:14px}
- .category-icon{width:53px;height:53px;font-size:27px;border-radius:18px;margin-bottom:8px}
- .category b{font-size:10px}
- .deal-strip{grid-template-columns:1fr;gap:10px;margin:27px 0}
- .deal-tile{min-height:135px;padding:19px}
- .deal-tile h3{font-size:23px}.deal-art{font-size:61px}
- .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
- .product-image{height:145px}
- .product-info{padding:10px}
- .product h3{font-size:11px}
- .price{font-size:16px}
- .fresh-panel{padding:12px;border-radius:18px}
- .wide-promo{padding:24px 20px;gap:5px;margin:27px 0}
- .wide-promo h2{font-size:26px}.wide-promo p{font-size:11px}
- .wide-promo .big-emoji{font-size:70px}
- .footer-grid{grid-template-columns:1fr 1fr;gap:23px}
- .footer-grid>div:first-child{grid-column:1/-1}
- .footer{padding:30px 5% 75px}
- .mobile-bottom{
-  position:fixed;display:grid;grid-template-columns:repeat(4,1fr);
-  bottom:0;left:0;right:0;z-index:25;padding:9px 5px max(9px,env(safe-area-inset-bottom));
-  background:#ffffffed;border-top:1px solid #dfe9df;backdrop-filter:blur(15px)
- }
- .mobile-bottom button{border:0;background:transparent;color:#456454;
-  display:grid;justify-items:center;gap:4px;font-size:10px}
- .mobile-bottom span{font-size:20px}
+ .head{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 4%}
+ .brand b{font-size:19px}.brand .logo{width:37px;height:37px;font-size:22px}
+ .search{grid-column:1/-1;grid-row:2;max-width:none}.head .action{font-size:11px}
+ nav{justify-content:flex-start}nav a{padding:12px}
+ main{padding:15px 4% 30px}
+ .hero{grid-template-columns:1fr}.hero-copy{padding:28px 24px 8px}.hero h1{font-size:43px}
+ .hero p{font-size:12px}.hero-art{min-height:220px}.circle{width:195px;height:195px}
+ .produce{font-size:115px}.hero-sticker{top:6%;right:7%;padding:10px}.hero-sticker strong{font-size:22px}
+ .round-sticker{width:65px;height:65px;font-size:10px}
+ .perks{grid-template-columns:repeat(2,1fr);gap:8px;margin:14px 0 26px}
+ .perk{padding:10px;gap:7px}.perk span{font-size:19px}.perk b{font-size:10px}.perk small{font-size:9px}
+ .section{margin:27px 0}.categories{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+ .cat{padding:11px 3px;border-radius:13px}.cat span{width:48px;height:48px;font-size:25px;border-radius:16px}
+ .cat b{font-size:9px}.sale-grid{grid-template-columns:1fr;gap:10px}
+ .sale{min-height:132px;padding:18px}.sale h3{font-size:22px}.sale .art{font-size:58px}
+ .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .photo{height:140px}.info{padding:9px}.info h3{font-size:11px}.price{font-size:16px}
+ .promo-wide{padding:23px 17px;grid-template-columns:1fr .5fr;gap:5px}
+ .promo-wide h2{font-size:25px}.promo-wide .art{font-size:70px}
+ .fresh{padding:10px}
+ .footer{grid-template-columns:1fr 1fr;gap:18px}.footer>div:first-child{grid-column:1/-1}
+ footer{padding-bottom:28px}
+ .mobile{display:grid;position:fixed;z-index:20;bottom:0;left:0;right:0;grid-template-columns:repeat(4,1fr);background:#ffffffed;backdrop-filter:blur(14px);border-top:1px solid #dce8db;padding:8px 0}
+ .mobile button{border:0;background:transparent;color:#305943;font-size:10px;display:grid;gap:3px;justify-items:center}.mobile span{font-size:20px}
 }
-@media(prefers-reduced-motion:reduce){
- *,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}
-}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div class="ambient" aria-hidden="true">
-  <div class="orb one"></div><div class="orb two"></div><div class="orb three"></div>
-</div>
-
-<div class="top-strip">
-  🌿 Everyday essentials, extraordinary savings — <strong>discover your next great deal!</strong>
-</div>
-
-<header class="header">
-  <div class="head-main">
-    <a class="brand" href="#" aria-label="Green Mart home">
-      <div class="brand-mark">🌿</div>
-      <div><div class="brand-name">Green Mart</div>
-        <div class="brand-sub">FRESHNESS · QUALITY · SAVINGS</div></div>
-    </a>
-    <form class="search" id="searchForm">
-      <span>⌕</span>
-      <input id="searchInput" type="search" placeholder="Search products, brands and categories..." aria-label="Search products">
-      <button type="submit">Search</button>
-    </form>
-    <button class="header-action" id="locationButton" title="Delivery location">
-      <span>📍</span><span class="action-text" id="locationText">Set location</span>
-    </button>
-    <button class="header-action" id="accountButton"><span>♙</span><span class="action-text">Account</span></button>
-    <button class="header-action cart-button" id="openCart" aria-label="Open shopping cart">
-      🛒 <span class="cart-count" id="cartCount">0</span>
-    </button>
-  </div>
-  <nav class="nav" aria-label="Main navigation">
-    <a href="#categories">☰ All Categories</a>
-    <a href="#">Home</a><a href="#deals">🔥 Deals</a>
-    <a href="#fresh">Fresh Food</a><a href="#products">Groceries</a>
-    <a href="#products">Snacks</a><a href="#products">Personal Care</a>
-    <a href="#products">Home & Living</a><a href="#products">Sports</a>
-    <a href="#products">Baby Care</a>
-  </nav>
+<div class="top">🌿 GREEN MART V4 SPECIALS — <b>More choice. More value. More reasons to smile!</b></div>
+<header>
+ <div class="head">
+  <a class="brand" href="#" style="color:white;text-decoration:none"><span class="logo">🌿</span><span><b>Green Mart</b><small>FRESHNESS · QUALITY · SAVINGS</small></span></a>
+  <form class="search" id="searchForm"><span>⌕</span><input id="search" placeholder="Search soaps, snacks, groceries, sports and more…" aria-label="Search products"><button>Search</button></form>
+  <button class="action" onclick="setLocation()">📍 <span id="location">Delivery area</span></button>
+  <button class="action" onclick="toast('Customer sign-in will be connected to Firebase.')">♙ Account</button>
+  <button class="action" onclick="openCart()">🛒 <span id="cartCount">0</span></button>
+ </div>
+ <nav>
+  <a href="#categories">☰ All Categories</a><a href="#">Home</a><a href="#deals">🔥 Offers & Deals</a><a href="#fresh">Fresh Food</a><a href="#products">Groceries</a><a href="#products">Snacks</a><a href="#products">Personal Care</a><a href="#products">Home & Living</a><a href="#products">Sports & Fitness</a><a href="#products">Baby Care</a><a href="#categories">More</a>
+ </nav>
 </header>
 
-<main class="wrap">
-  <section class="hero" aria-label="Featured offers">
-    <div class="hero-copy">
-      <div class="eyebrow"><i></i> YOUR NEIGHBOURHOOD, REIMAGINED</div>
-      <h1>Good things.<br><span>Great prices.</span></h1>
-      <p>Your everyday world, all in one place. Discover fresh food, trusted essentials, home favourites and exciting deals — all with the Green Mart touch.</p>
-      <div class="hero-buttons">
-        <button class="primary" onclick="document.querySelector('#deals').scrollIntoView({behavior:'smooth'})">Explore today's deals ↗</button>
-        <button class="secondary" onclick="document.querySelector('#categories').scrollIntoView({behavior:'smooth'})">Shop all categories</button>
-      </div>
-      <div class="hero-dots"><i></i><i></i><i></i></div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-disc"></div>
-      <img class="hero-photo"
-        src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=85"
-        alt="Colourful fresh produce at a market"
-        onerror="this.style.display='none';document.getElementById('heroFallback').style.display='block'">
-      <div id="heroFallback" style="display:none;font-size:120px;z-index:2">🥑🥦🍊</div>
-      <div class="hero-tag"><small>GOOD DEALS DAILY</small><b>Save more.</b><small>Live better. 🌿</small></div>
-      <div class="hero-sticker">FRESH<br>FINDS<br>EVERY DAY</div>
-    </div>
-  </section>
-
-  <div class="trust-row">
-    <div class="trust"><div class="trust-icon">🚚</div><div><b>Convenient shopping</b><small>Easy, everyday essentials</small></div></div>
-    <div class="trust"><div class="trust-icon">🏷️</div><div><b>Deals worth discovering</b><small>Offers across departments</small></div></div>
-    <div class="trust"><div class="trust-icon">🌱</div><div><b>Freshness matters</b><small>Quality comes first</small></div></div>
-    <div class="trust"><div class="trust-icon">💚</div><div><b>Your local favourite</b><small>Made for everyday living</small></div></div>
+<main>
+ <section class="hero">
+  <div class="hero-copy">
+   <span class="pill">✦ YOUR EVERYDAY SHOPPING DESTINATION</span>
+   <h1>Fresh finds.<br>Fantastic <em>offers.</em></h1>
+   <p>From pantry essentials and personal care to sports gear and fresh produce — discover more of what you love at Green Mart.</p>
+   <div class="ctas"><button class="primary" onclick="document.querySelector('#deals').scrollIntoView({behavior:'smooth'})">Shop today's offers ↗</button><button class="outline" onclick="document.querySelector('#categories').scrollIntoView({behavior:'smooth'})">Explore departments</button></div>
   </div>
+  <div class="hero-art"><div class="circle"></div><div class="produce">🥑🥦🍊</div><div class="hero-sticker"><small>DEALS TO DISCOVER</small><strong>UP TO 50%</strong><small>OFF SELECT DEMO ITEMS*</small></div><div class="round-sticker">FRESH<br>FINDS<br>DAILY 🌱</div></div>
+ </section>
 
-  <section class="section" id="categories">
-    <div class="section-head">
-      <div><h2 class="section-title">Explore every aisle ✨</h2>
-      <p class="section-sub">From your kitchen to your everyday lifestyle.</p></div>
-      <button class="view-all" onclick="showAllProducts()">View products ↗</button>
-    </div>
-    <div class="category-grid" id="categoryGrid"></div>
-  </section>
+ <div class="perks">
+  <div class="perk"><span>🚚</span><div><b>Convenient shopping</b><small>Everyday essentials together</small></div></div>
+  <div class="perk"><span>🏷️</span><div><b>Offers across aisles</b><small>Find your next favourite deal</small></div></div>
+  <div class="perk"><span>🌿</span><div><b>Freshness first</b><small>Made for everyday living</small></div></div>
+  <div class="perk"><span>💚</span><div><b>Green Mart quality</b><small>Shop with confidence</small></div></div>
+ </div>
 
-  <section class="section" id="deals">
-    <div class="section-head">
-      <div><h2 class="section-title">Deals you'll love 🔥</h2>
-      <p class="section-sub">Discover demo offers across your everyday favourites.</p></div>
-      <button class="view-all" onclick="filterDeals()">Shop deals ↗</button>
-    </div>
-    <div class="deal-strip">
-      <div class="deal-tile purple"><div><div class="mini-label">THE EVERYDAY SALE</div><h3>Little prices.<br>Big smiles.</h3><p>Explore deals on everyday favourites.</p><button onclick="filterDeals()">Explore deals ↗</button></div><div class="deal-art">🛍️</div></div>
-      <div class="deal-tile rose"><div><div class="mini-label">CARE FOR YOURSELF</div><h3>Your self-care<br>essentials.</h3><p>Personal care picks for every day.</p><button onclick="filterCategory('Personal Care')">Shop personal care ↗</button></div><div class="deal-art">🧴</div></div>
-      <div class="deal-tile gold"><div><div class="mini-label">MAKE ROOM FOR FUN</div><h3>Move more.<br>Live more.</h3><p>Discover fitness and sports essentials.</p><button onclick="filterCategory('Sports & Fitness')">Shop sports ↗</button></div><div class="deal-art">🏸</div></div>
-    </div>
-    <div class="products" id="dealProducts"></div>
-  </section>
+ <section class="section" id="categories">
+  <div class="section-head"><div><h2>Explore all departments ✨</h2><p>Your whole shopping list, under one roof.</p></div></div>
+  <div class="categories" id="categoriesGrid"></div>
+ </section>
 
-  <section class="section" id="products">
-    <div class="section-head">
-      <div><h2 class="section-title" id="catalogueTitle">Discover your favourites</h2>
-      <p class="section-sub" id="catalogueSubtitle">Useful finds from every corner of the store.</p></div>
-      <button class="view-all" onclick="showAllProducts()">Clear filters ↺</button>
-    </div>
-    <div class="products" id="productGrid"></div>
-  </section>
+ <section class="section" id="deals">
+  <div class="section-head"><div><h2>🔥 Today's top deals</h2><p>Look for the discount badge and compare the displayed prices.</p></div><button class="linkbtn" onclick="deals()">View all offers →</button></div>
+  <div class="products" id="dealProducts"></div>
+ </section>
 
-  <section class="wide-promo">
-    <div>
-      <div class="mini-label">ONE STORE. SO MANY POSSIBILITIES.</div>
-      <h2>More for your home.<br>More for your life.</h2>
-      <p>Shop pantry staples, personal care, cleaning supplies, sports essentials and more — all in one place.</p>
-      <div class="promo-circles"><span>🥫 Groceries</span><span>🧴 Personal care</span><span>🏠 Home</span><span>⚽ Sports</span></div>
-      <button class="primary" onclick="showAllProducts()">Discover the collection ↗</button>
-    </div>
-    <div class="big-emoji" aria-hidden="true">🛒🌿</div>
-  </section>
+ <section class="section">
+  <div class="sale-grid">
+   <div class="sale purple"><small>THE EVERYDAY SALE</small><h3>Big savings.<br><strong>Happy shopping.</strong></h3><p>Find a new favourite for less.</p><button onclick="deals()">EXPLORE OFFERS ↗</button><span class="art">🛍️</span></div>
+   <div class="sale pink"><small>BEAUTY & PERSONAL CARE</small><h3>Care for you.<br><strong>Save on more.</strong></h3><p>Everyday self-care essentials.</p><button onclick="category('Personal Care')">SHOP PERSONAL CARE ↗</button><span class="art">🧴</span></div>
+   <div class="sale orange"><small>SPORTS & FITNESS</small><h3>Ready, set,<br><strong>let's move!</strong></h3><p>Gear up for your next activity.</p><button onclick="category('Sports & Fitness')">EXPLORE SPORTS ↗</button><span class="art">🏸</span></div>
+  </div>
+ </section>
 
-  <section class="section" id="fresh">
-    <div class="section-head">
-      <div><h2 class="section-title">Fresh picks for your day 🍎</h2>
-      <p class="section-sub">Colourful, everyday produce in our sample catalogue.</p></div>
-      <button class="view-all" onclick="filterCategory('Fruits & Vegetables')">Explore fresh ↗</button>
-    </div>
-    <div class="fresh-panel"><div class="products" id="freshProducts"></div></div>
-  </section>
+ <section class="section" id="products">
+  <div class="section-head"><div><h2 id="productTitle">Popular picks for you 🛒</h2><p id="productSubtitle">Browse a selection from across the store.</p></div><button class="linkbtn" onclick="reset()">Show all ↗</button></div>
+  <div class="products" id="productGrid"></div>
+ </section>
 
-  <section class="section">
-    <div class="section-head">
-      <div><h2 class="section-title">A little something for everyone 💚</h2>
-      <p class="section-sub">More departments. More choice. One Green Mart.</p></div>
-    </div>
-    <div class="category-grid" id="moreCategories"></div>
-  </section>
+ <section class="promo-wide">
+  <div><span class="eyebrow">YOUR HOME. YOUR ROUTINE. YOUR GREEN MART.</span><h2>Everything you need.<br>All in one place.</h2><p>From laundry detergent and soaps to kitchenware, stationery, snacks and sports accessories — shop across more departments.</p><div class="promo-tags"><span>🧼 Home care</span><span>🧴 Personal care</span><span>🍪 Snacks</span><span>🏸 Sports</span></div><button class="primary" onclick="reset()">Discover the collection ↗</button></div>
+  <div class="art">🛍️🌿</div>
+ </section>
+
+ <section class="section" id="fresh">
+  <div class="section-head"><div><h2>🍎 Fresh picks for your day</h2><p>Explore our illustrative fresh produce selection.</p></div><button class="linkbtn" onclick="category('Fruits & Vegetables')">Shop fresh →</button></div>
+  <div class="fresh"><div class="products" id="freshProducts"></div></div>
+ </section>
 </main>
 
-<footer class="footer">
- <div class="footer-inner">
-  <div class="footer-grid">
-   <div><a class="brand" href="#"><div class="brand-mark">🌿</div><div><div class="brand-name">Green Mart</div><div class="brand-sub">FRESHNESS · QUALITY · SAVINGS</div></div></a>
-    <p>Your everyday shopping destination for groceries, fresh produce, personal care, home essentials, sports and more.</p></div>
-   <div><h3>Shop departments</h3><div class="footer-links"><a href="#categories">All categories</a><a href="#fresh">Fresh produce</a><a href="#products">Groceries</a><a href="#products">Personal care</a><a href="#products">Home & living</a></div></div>
-   <div><h3>Customer care</h3><div class="footer-links"><a href="#footerInfo" onclick="footerMessage('Orders and delivery information will be added when store operations are configured.')">Orders & delivery</a><a href="#footerInfo" onclick="footerMessage('Returns policy will be published after store approval.')">Returns & refunds</a><a href="#footerInfo" onclick="footerMessage('Contact information will be added by Green Mart.')">Contact us</a><a href="#footerInfo" onclick="footerMessage('Privacy policy to be finalised before launch.')">Privacy policy</a></div></div>
-   <div><h3>Stay connected 🌱</h3><p>Great everyday shopping starts here.</p><p>Green Mart V4<br>Customer shopping experience</p></div>
-  </div>
-  <div class="footer-bottom" id="footerInfo"><span>© <span id="year"></span> Green Mart V4. All rights reserved.</span><span>Freshness · Quality · Savings</span></div>
- </div>
+<footer><div class="footer">
+ <div><a class="brand" href="#" style="color:white;text-decoration:none"><span class="logo">🌿</span><span><b>Green Mart</b><small>FRESHNESS · QUALITY · SAVINGS</small></span></a><p>Your everyday shopping destination for groceries, fresh produce, home essentials, personal care, sports and much more.</p></div>
+ <div><h3>Shop departments</h3><div class="footer-links"><a href="#categories">All categories</a><a href="#fresh">Fresh produce</a><a href="#products">Groceries & snacks</a><a href="#products">Personal care</a><a href="#products">Home & sports</a></div></div>
+ <div><h3>Customer support</h3><div class="footer-links"><a href="#products" onclick="toast('Order tracking will be added with the backend.')">Track orders</a><a href="#products" onclick="toast('Returns policy will be configured before launch.')">Returns & refunds</a><a href="#products" onclick="toast('Official contact details will be added by the store.')">Contact Green Mart</a></div></div>
+ <div><h3>More from Green Mart</h3><p>Great everyday shopping, with more departments to discover.</p><p>🌿 Freshness · Quality · Savings</p></div>
+ </div><div class="bottom"><span>© <span id="year"></span> Green Mart V4</span><span>*Demo offers and prices are illustrative, not live store promotions.</span></div>
 </footer>
 
-<div class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping cart">
- <div class="cart-panel">
-  <div class="cart-top"><h2>Your shopping cart 🛒</h2><button class="close-cart" id="closeCart">✕ Close</button></div>
-  <p class="section-sub">Your selected demo products.</p>
-  <div class="cart-items" id="cartItems"></div>
-  <div class="cart-total" id="cartTotal"></div>
- </div>
-</div>
-<div class="toast" id="toast" role="status"></div>
-
-<nav class="mobile-bottom" aria-label="Quick navigation">
- <button onclick="window.scrollTo({top:0,behavior:'smooth'})"><span>⌂</span>Home</button>
- <button onclick="document.querySelector('#categories').scrollIntoView({behavior:'smooth'})"><span>▦</span>Categories</button>
- <button onclick="filterDeals()"><span>🏷️</span>Offers</button>
- <button onclick="openCart()"><span>🛒</span>Cart</button>
-</nav>
+<div class="drawer" id="drawer"><div class="panel"><div class="panel-head"><h2>Your cart 🛒</h2><button onclick="closeCart()">✕ Close</button></div><div class="cart-items" id="cartItems"></div><div class="total" id="total"></div></div></div>
+<div class="toast" id="toast"></div>
+<div class="mobile"><button onclick="scrollTo({top:0,behavior:'smooth'})"><span>⌂</span>Home</button><button onclick="document.querySelector('#categories').scrollIntoView({behavior:'smooth'})"><span>▦</span>Categories</button><button onclick="deals()"><span>🏷️</span>Offers</button><button onclick="openCart()"><span>🛒</span>Cart</button></div>
 
 <script>
-const categories = [
- {name:"Fruits & Vegetables",icon:"🥦",tint:"#d9f3d4"},
- {name:"Groceries & Staples",icon:"🌾",tint:"#f8e6c5"},
- {name:"Snacks & Beverages",icon:"🍿",tint:"#ffe3c8"},
- {name:"Personal Care",icon:"🧴",tint:"#e1e9ff"},
- {name:"Home & Cleaning",icon:"🧽",tint:"#d9f5ed"},
- {name:"Sports & Fitness",icon:"🏸",tint:"#dceaff"},
- {name:"Baby Care",icon:"🧸",tint:"#ffeadc"},
- {name:"Kitchen & Home",icon:"🍳",tint:"#fce5e8"},
- {name:"Dairy & Eggs",icon:"🥛",tint:"#e1f1ff"},
- {name:"Stationery & School",icon:"📚",tint:"#eee2ff"},
- {name:"Packaged Foods",icon:"🥫",tint:"#f8e5c7"},
- {name:"Pet Supplies",icon:"🐾",tint:"#e1f3d7"}
+const cats=[
+["Fruits & Vegetables","🥦","#daf3d5"],["Groceries & Staples","🌾","#f7e5c4"],
+["Snacks & Beverages","🍿","#ffe2c5"],["Personal Care","🧴","#e2e8ff"],
+["Home & Cleaning","🧼","#d8f3eb"],["Sports & Fitness","🏸","#dbeaff"],
+["Baby Care","🧸","#ffe7db"],["Kitchen & Home","🍳","#fce2e8"],
+["Dairy & Eggs","🥛","#e0f1ff"],["Stationery & School","📚","#eee1ff"],
+["Packaged Foods","🥫","#f7e5c5"],["Pet Supplies","🐾","#e4f3d8"]
 ];
-
-// Illustrative demo catalogue only. Replace names, images, prices and discounts
-// with Green Mart's verified stock data before publishing a real shop.
-const products = [
- {id:1,name:"Basmati Rice",brand:"Everyday staples",pack:"1 kg",price:99,old:125,off:21,cat:"Groceries & Staples",emoji:"🍚",image:"https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=450&q=80",rating:"4.5"},
- {id:2,name:"Fresh Bananas",brand:"Fresh produce",pack:"1 dozen",price:49,old:60,off:18,cat:"Fruits & Vegetables",emoji:"🍌",image:"https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=450&q=80",rating:"4.6"},
- {id:3,name:"Daily Care Shampoo",brand:"Personal care",pack:"180 ml",price:149,old:199,off:25,cat:"Personal Care",emoji:"🧴",image:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=450&q=80",rating:"4.4"},
- {id:4,name:"Classic Potato Chips",brand:"Snack time",pack:"Pack",price:20,old:25,off:20,cat:"Snacks & Beverages",emoji:"🍟",rating:"4.3"},
- {id:5,name:"Laundry Detergent",brand:"Home essentials",pack:"1 kg",price:119,old:149,off:20,cat:"Home & Cleaning",emoji:"🫧",rating:"4.5"},
- {id:6,name:"Sports Water Bottle",brand:"Active living",pack:"750 ml",price:199,old:299,off:33,cat:"Sports & Fitness",emoji:"🥤",rating:"4.4"},
- {id:7,name:"Soft Baby Wipes",brand:"Baby care",pack:"Pack",price:89,old:110,off:19,cat:"Baby Care",emoji:"🧸",rating:"4.6"},
- {id:8,name:"Kitchen Storage Set",brand:"Kitchen & home",pack:"Set",price:249,old:349,off:29,cat:"Kitchen & Home",emoji:"🥣",rating:"4.3"},
- {id:9,name:"Fresh Milk",brand:"Dairy favourites",pack:"1 litre",price:58,old:62,off:6,cat:"Dairy & Eggs",emoji:"🥛",rating:"4.5"},
- {id:10,name:"Notebook Set",brand:"Back to school",pack:"Pack of 4",price:99,old:140,off:29,cat:"Stationery & School",emoji:"📚",rating:"4.4"},
- {id:11,name:"Red Apples",brand:"Fresh produce",pack:"500 g",price:89,old:110,off:19,cat:"Fruits & Vegetables",emoji:"🍎",image:"https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=450&q=80",rating:"4.6"},
- {id:12,name:"Fresh Broccoli",brand:"Fresh produce",pack:"1 piece",price:55,old:70,off:21,cat:"Fruits & Vegetables",emoji:"🥦",image:"https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?auto=format&fit=crop&w=450&q=80",rating:"4.5"},
- {id:13,name:"Tomatoes",brand:"Fresh produce",pack:"500 g",price:30,old:40,off:25,cat:"Fruits & Vegetables",emoji:"🍅",rating:"4.4"},
- {id:14,name:"Fresh Carrots",brand:"Fresh produce",pack:"500 g",price:35,old:45,off:22,cat:"Fruits & Vegetables",emoji:"🥕",rating:"4.3"},
- {id:15,name:"Cucumber",brand:"Fresh produce",pack:"500 g",price:25,old:35,off:29,cat:"Fruits & Vegetables",emoji:"🥒",rating:"4.4"},
- {id:16,name:"Sweet Oranges",brand:"Fresh produce",pack:"500 g",price:45,old:60,off:25,cat:"Fruits & Vegetables",emoji:"🍊",rating:"4.5"},
- {id:17,name:"Toothpaste",brand:"Personal care",pack:"150 g",price:75,old:95,off:21,cat:"Personal Care",emoji:"🪥",rating:"4.5"},
- {id:18,name:"Dishwashing Liquid",brand:"Home essentials",pack:"500 ml",price:85,old:110,off:23,cat:"Home & Cleaning",emoji:"🧽",rating:"4.3"},
- {id:19,name:"Orange Juice",brand:"Snack time",pack:"1 litre",price:110,old:140,off:21,cat:"Snacks & Beverages",emoji:"🧃",rating:"4.2"},
- {id:20,name:"Badminton Racket",brand:"Active living",pack:"1 piece",price:399,old:549,off:27,cat:"Sports & Fitness",emoji:"🏸",rating:"4.4"},
- {id:21,name:"Pasta",brand:"Pantry favourites",pack:"500 g",price:69,old:85,off:19,cat:"Packaged Foods",emoji:"🍝",rating:"4.5"},
- {id:22,name:"Pet Food",brand:"Pet essentials",pack:"Pack",price:129,old:159,off:19,cat:"Pet Supplies",emoji:"🐾",rating:"4.4"},
- {id:23,name:"Cooking Oil",brand:"Everyday staples",pack:"1 litre",price:145,old:170,off:15,cat:"Groceries & Staples",emoji:"🫗",rating:"4.5"},
- {id:24,name:"Eggs",brand:"Dairy favourites",pack:"6 pieces",price:48,old:55,off:13,cat:"Dairy & Eggs",emoji:"🥚",rating:"4.6"}
-];
-
-let cart = {};
-let wishlist = new Set();
-let activeCategory = "";
-let dealsOnly = false;
-let searchTerm = "";
-
-const money = n => "₹" + Number(n).toLocaleString("en-IN");
-const productById = id => products.find(p=>p.id===Number(id));
-const escapeHtml = s => String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-
-function categoryCard(c){
- return `<button class="category" style="--tint:${c.tint}" onclick="filterCategory('${c.name.replace(/'/g,"\\'")}')">
-  <span class="category-icon">${c.icon}</span><b>${escapeHtml(c.name)}</b>
-  <small>Explore aisle ↗</small></button>`;
-}
-function renderCategories(){
- document.getElementById("categoryGrid").innerHTML=categories.slice(0,8).map(categoryCard).join("");
- document.getElementById("moreCategories").innerHTML=categories.slice(8).map(categoryCard).join("");
-}
-function productCard(p){
- const wished=wishlist.has(p.id);
- const image=p.image
-  ? `<img src="${p.image}" alt="${escapeHtml(p.name)}" loading="lazy" onerror="this.outerHTML='<div class=product-placeholder>${p.emoji}</div>'">`
-  : `<div class="product-placeholder">${p.emoji}</div>`;
- return `<article class="product">
-  <div class="product-image">${image}
-   <span class="discount">${p.off}% OFF*</span>
-   <button class="wish ${wished?"active":""}" onclick="toggleWish(${p.id})" aria-label="${wished?"Remove from":"Add to"} wishlist">${wished?"♥":"♡"}</button>
-  </div>
-  <div class="product-info">
-   <div class="product-brand">${escapeHtml(p.brand)}</div>
-   <h3>${escapeHtml(p.name)}</h3><div class="pack">${escapeHtml(p.pack)} · ${escapeHtml(p.cat)}</div>
-   <div class="price-line"><span class="price">${money(p.price)}</span><span class="old-price">${money(p.old)}</span></div>
-   <div class="save">You save ${money(p.old-p.price)}</div>
-   <div class="rating">★ ${p.rating} <span>· Demo rating</span></div>
-   <button class="add" onclick="addToCart(${p.id})">＋ Add to cart</button>
-  </div></article>`;
-}
-function matchingProducts(){
- return products.filter(p=>{
-  const matchesCategory=!activeCategory||p.cat===activeCategory;
-  const matchesSearch=!searchTerm||[p.name,p.brand,p.cat,p.pack].join(" ").toLowerCase().includes(searchTerm);
-  const matchesDeal=!dealsOnly||p.off>=20;
-  return matchesCategory&&matchesSearch&&matchesDeal;
- });
-}
-function renderGrid(){
- const list=matchingProducts();
- document.getElementById("productGrid").innerHTML=list.length?list.map(productCard).join():
-  `<div class="empty-state">🔎 No matching demo products. Try another search or clear the filters.</div>`;
- document.getElementById("catalogueTitle").textContent=activeCategory|| (dealsOnly?"Today's demo deals":"Discover your favourites");
- document.getElementById("catalogueSubtitle").textContent=searchTerm?`Search results for “${searchTerm}”`: "Illustrative products and prices — replace with verified store data.";
-}
-function showAllProducts(){
- activeCategory="";dealsOnly=false;searchTerm="";
- document.getElementById("searchInput").value="";
- renderGrid();document.getElementById("products").scrollIntoView({behavior:"smooth"});
-}
-function filterCategory(name){
- activeCategory=name;dealsOnly=false;renderGrid();
- document.getElementById("products").scrollIntoView({behavior:"smooth"});
-}
-function filterDeals(){
- activeCategory="";dealsOnly=true;renderGrid();
- document.getElementById("products").scrollIntoView({behavior:"smooth"});
-}
-function searchProducts(term){
- searchTerm=term.trim().toLowerCase();activeCategory="";dealsOnly=false;renderGrid();
- document.getElementById("products").scrollIntoView({behavior:"smooth"});
-}
-function toggleWish(id){
- wishlist.has(id)?wishlist.delete(id):wishlist.add(id);
- renderGrid();renderFixedSections();
- showToast(wishlist.has(id)?"Added to your wishlist ♡":"Removed from wishlist");
-}
-function renderFixedSections(){
- document.getElementById("dealProducts").innerHTML=products.filter(p=>p.off>=20).slice(0,5).map(productCard).join("");
- document.getElementById("freshProducts").innerHTML=products.filter(p=>p.cat==="Fruits & Vegetables").slice(0,6).map(productCard).join("");
-}
-function addToCart(id){
- cart[id]=(cart[id]||0)+1;updateCart();showToast("Added to your cart 🛒");
-}
-function changeQty(id,delta){
- cart[id]=(cart[id]||0)+delta;if(cart[id]<=0)delete cart[id];updateCart();
-}
+// Demo data only. Replace all prices, offers and stock with store-approved information.
+const data=[
+[1,"Basmati Rice","Groceries & Staples","1 kg",299,499,40,"🍚","4.5"],
+[2,"Fresh Bananas","Fruits & Vegetables","1 dozen",24,48,50,"🍌","4.6"],
+[3,"Daily Care Shampoo","Personal Care","650 ml",219,340,35,"🧴","4.4"],
+[4,"Classic Potato Chips","Snacks & Beverages","52 g",18,33,45,"🍟","4.3"],
+[5,"Laundry Detergent","Home & Cleaning","1 kg",199,499,60,"🧼","4.5"],
+[6,"Amul-style Butter","Dairy & Eggs","500 g",205,295,30,"🧈","4.7"],
+[7,"Sports Water Bottle","Sports & Fitness","750 ml",199,299,33,"🥤","4.4"],
+[8,"Baby Wipes","Baby Care","Pack",89,120,26,"🧸","4.6"],
+[9,"Kitchen Storage Set","Kitchen & Home","Set",249,349,29,"🍳","4.3"],
+[10,"Notebook Set","Stationery & School","4 pieces",99,140,29,"📚","4.4"],
+[11,"Red Apples","Fruits & Vegetables","500 g",149,199,25,"🍎","4.6"],
+[12,"Fresh Broccoli","Fruits & Vegetables","1 piece",79,99,20,"🥦","4.5"],
+[13,"Tomatoes","Fruits & Vegetables","500 g",49,65,25,"🍅","4.4"],
+[14,"Carrots","Fruits & Vegetables","500 g",39,49,20,"🥕","4.3"],
+[15,"Cucumber","Fruits & Vegetables","500 g",29,39,26,"🥒","4.2"],
+[16,"Fresh Oranges","Fruits & Vegetables","500 g",59,79,25,"🍊","4.5"],
+[17,"Toothpaste","Personal Care","150 g",75,95,21,"🪥","4.5"],
+[18,"Dishwashing Liquid","Home & Cleaning","500 ml",85,110,23,"🧽","4.3"],
+[19,"Orange Juice","Snacks & Beverages","1 litre",110,140,21,"🧃","4.2"],
+[20,"Badminton Racket","Sports & Fitness","1 piece",399,549,27,"🏸","4.4"],
+[21,"Pasta","Packaged Foods","500 g",69,85,19,"🍝","4.5"],
+[22,"Pet Food","Pet Supplies","Pack",129,159,19,"🐾","4.4"],
+[23,"Cooking Oil","Groceries & Staples","1 litre",145,170,15,"🫗","4.5"],
+[24,"Eggs","Dairy & Eggs","6 pieces",48,55,13,"🥚","4.6"]
+].map(x=>({id:x[0],name:x[1],cat:x[2],pack:x[3],price:x[4],old:x[5],off:x[6],emoji:x[7],rating:x[8]}));
+let cart={},wish=new Set(),filter="",term="",onlyDeals=false;
+const $=id=>document.getElementById(id);
+const money=n=>"₹"+n.toLocaleString("en-IN");
+function toast(s){$("toast").textContent=s;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),2300)}
+function categoryCard(c){return `<button class="cat" style="--tint:${c[2]}" onclick="category('${c[0]}')"><span>${c[1]}</span><b>${c[0]}</b></button>`}
+function card(p){return `<article class="product"><div class="photo"><span class="emoji">${p.emoji}</span><span class="discount">${p.off}% OFF*</span><button class="heart" aria-label="Wishlist" onclick="toggleWish(${p.id})">${wish.has(p.id)?"♥":"♡"}</button></div><div class="info"><div class="brandline">${p.cat}</div><h3>${p.name}</h3><div class="pack">${p.pack}</div><div class="prices"><span class="price">${money(p.price)}</span><span class="old">${money(p.old)}</span></div><div class="saving">Save ${money(p.old-p.price)}</div><div class="rating">★ ${p.rating} <span>· Demo rating</span></div><button class="add" onclick="add(${p.id})">＋ Add to cart</button></div></article>`}
+function matches(){return data.filter(p=>(!filter||p.cat===filter)&&(!term||(p.name+" "+p.cat).toLowerCase().includes(term))&&(!onlyDeals||p.off>=25))}
+function render(){let arr=matches();$("productGrid").innerHTML=arr.length?arr.map(card).join():'<p>No products found. Try another search.</p>';$("productTitle").textContent=filter|| (onlyDeals?"All demo offers":"Popular picks for you 🛒");$("productSubtitle").textContent=term?"Search results":"Illustrative demo products, prices and discounts."}
+function renderSections(){$("categoriesGrid").innerHTML=cats.map(categoryCard).join();$("dealProducts").innerHTML=data.filter(p=>p.off>=25).slice(0,5).map(card).join();$("freshProducts").innerHTML=data.filter(p=>p.cat==="Fruits & Vegetables").map(card).join()}
+function category(c){filter=c;term="";onlyDeals=false;$("search").value="";render();$("products").scrollIntoView({behavior:"smooth"})}
+function deals(){filter="";term="";onlyDeals=true;render();$("products").scrollIntoView({behavior:"smooth"})}
+function reset(){filter="";term="";onlyDeals=false;$("search").value="";render();$("products").scrollIntoView({behavior:"smooth"})}
+function toggleWish(id){wish.has(id)?wish.delete(id):wish.add(id);render();$("dealProducts").innerHTML=data.filter(p=>p.off>=25).slice(0,5).map(card).join();$("freshProducts").innerHTML=data.filter(p=>p.cat==="Fruits & Vegetables").map(card).join();toast(wish.has(id)?"Added to wishlist":"Removed from wishlist")}
+function add(id){cart[id]=(cart[id]||0)+1;updateCart();toast("Added to your cart 🛒")}
+function change(id,n){cart[id]=(cart[id]||0)+n;if(cart[id]<=0)delete cart[id];updateCart()}
 function updateCart(){
- const count=Object.values(cart).reduce((a,b)=>a+b,0);
- document.getElementById("cartCount").textContent=count;
- const entries=Object.entries(cart);
- document.getElementById("cartItems").innerHTML=entries.length?entries.map(([id,qty])=>{
-  const p=productById(id);
-  return `<div class="cart-item"><div class="emoji">${p.emoji}</div><div><b>${escapeHtml(p.name)}</b><small>${money(p.price)} · ${escapeHtml(p.pack)}</small><div class="qty"><button onclick="changeQty(${p.id},-1)" aria-label="Decrease quantity">−</button><span>${qty}</span><button onclick="changeQty(${p.id},1)" aria-label="Increase quantity">+</button></div></div><b>${money(p.price*qty)}</b></div>`;
- }).join(""):`<div class="empty-state">🛒 Your cart is waiting for something lovely.</div>`;
- const subtotal=entries.reduce((sum,[id,qty])=>sum+productById(id).price*qty,0);
- document.getElementById("cartTotal").innerHTML=`<div class="total-line"><span>Subtotal</span><b>${money(subtotal)}</b></div><div class="total-line"><span>Delivery</span><span>Calculated later</span></div><div class="total-line"><strong>Demo total</strong><strong>${money(subtotal)}</strong></div><p class="checkout-note">Demo cart only. Checkout, inventory reservation, online payments and order submission are not connected yet. Do not treat this total as a final invoice.</p><button class="primary" style="width:100%" onclick="demoCheckout()">Continue (demo only) →</button>`;
+ let entries=Object.entries(cart),count=entries.reduce((s,[id,n])=>s+n,0);$("cartCount").textContent=count;
+ $("cartItems").innerHTML=entries.length?entries.map(([id,n])=>{let p=data.find(x=>x.id==id);return `<div class="cart-item"><span style="font-size:30px">${p.emoji}</span><div><b>${p.name}</b><small>${money(p.price)} · ${p.pack}</small><div class="qty"><button onclick="change(${id},-1)">−</button>${n}<button onclick="change(${id},1)">+</button></div></div><b>${money(p.price*n)}</b></div>`}).join():'<p>Your cart is empty. Discover something you love!</p>';
+ let sum=entries.reduce((s,[id,n])=>s+data.find(p=>p.id==id).price*n,0);
+ $("total").innerHTML=`<p>Subtotal: <b>${money(sum)}</b></p><p style="font-size:11px;color:#748579">Demo cart only. Real checkout, stock checks, payment and invoicing are not connected.</p><button class="primary" style="width:100%" onclick="toast('Secure checkout will be added after backend setup.')">Continue (demo) →</button>`;
 }
-function openCart(){document.getElementById("cartDrawer").classList.add("open");document.body.style.overflow="hidden";}
-function closeCart(){document.getElementById("cartDrawer").classList.remove("open");document.body.style.overflow="";}
-function demoCheckout(){
- showToast("Demo only — secure checkout will be configured later.");
-}
-let toastTimer;
-function showToast(message){
- const el=document.getElementById("toast");el.textContent=message;el.classList.add("show");
- clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove("show"),2400);
-}
-function footerMessage(message){showToast(message);}
-document.getElementById("searchForm").addEventListener("submit",e=>{
- e.preventDefault();searchProducts(document.getElementById("searchInput").value);
-});
-document.getElementById("searchInput").addEventListener("input",e=>{
- const value=e.target.value.trim();
- if(value.length===0){searchTerm="";renderGrid();}
-});
-document.getElementById("openCart").addEventListener("click",openCart);
-document.getElementById("closeCart").addEventListener("click",closeCart);
-document.getElementById("cartDrawer").addEventListener("click",e=>{
- if(e.target.id==="cartDrawer")closeCart();
-});
-document.getElementById("accountButton").addEventListener("click",()=>{
- showToast("Customer accounts will be enabled when secure sign-in is connected.");
-});
-document.getElementById("locationButton").addEventListener("click",()=>{
- const location=prompt("Enter your delivery area (optional):");
- if(location&&location.trim()){
-  document.getElementById("locationText").textContent=location.trim();
-  showToast("Location shown for this demo only.");
- }
-});
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCart();});
-document.getElementById("year").textContent=new Date().getFullYear();
-
-renderCategories();
-renderGrid();
-renderFixedSections();
-updateCart();
+function openCart(){$("drawer").classList.add("open");document.body.style.overflow="hidden"}
+function closeCart(){$("drawer").classList.remove("open");document.body.style.overflow=""}
+function setLocation(){let l=prompt("Enter your delivery area");if(l&&l.trim())$("location").textContent=l.trim()}
+$("searchForm").addEventListener("submit",e=>{e.preventDefault();term=$("search").value.trim().toLowerCase();filter="";onlyDeals=false;render();$("products").scrollIntoView({behavior:"smooth"})});
+$("drawer").addEventListener("click",e=>{if(e.target===$("drawer"))closeCart()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCart()});
+$("year").textContent=new Date().getFullYear();
+renderSections();render();updateCart();
 </script>
 </body>
 </html>
