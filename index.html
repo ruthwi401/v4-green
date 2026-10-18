@@ -5,645 +5,780 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#176b3a">
-<title>Green Mart V4 | Everyday Shopping & Great Offers</title>
-
+<title>Green Mart V4 | Supermarket</title>
 <style>
 :root{
-  --g:#176b3a;
-  --g2:#08784c;
-  --d:#073b29;
-  --lime:#d9ff8b;
-  --ink:#20392c;
-  --muted:#718275;
-  --mint:#f3f8f1;
-  --cream:#fffaf2;
-  --white:#fff;
-  --line:#e4ede0;
-  --shadow:0 10px 30px rgba(30,75,43,.075);
-  --shadow-hover:0 17px 36px rgba(30,75,43,.13);
+  --green:#176b3a;--dark:#073b29;--mint:#f0f7ed;
+  --cream:#fffaf2;--ink:#20392c;--muted:#718275;
+  --line:#e1eadc;--white:#fff;--red:#c43e32;
+  --shadow:0 8px 28px #20452a10
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:135px}
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  color:var(--ink);
-  background:
-    radial-gradient(ellipse at 4% 5%,rgba(202,232,192,.48),transparent 31%),
-    radial-gradient(ellipse at 98% 25%,rgba(255,226,195,.34),transparent 27%),
-    radial-gradient(ellipse at 12% 67%,rgba(215,237,210,.28),transparent 32%),
-    linear-gradient(145deg,#f3f8f1 0%,#f8faf5 43%,#fffaf2 100%);
-  background-attachment:fixed;
+  margin:0;font-family:Arial,sans-serif;color:var(--ink);
+  background:radial-gradient(ellipse at 0 0,#dcefd5 0,transparent 36%),
+  radial-gradient(ellipse at 100% 40%,#ffead6 0,transparent 30%),
+  linear-gradient(135deg,#f1f7ed,#fffaf2);
+  background-attachment:fixed
 }
-button,input{font:inherit}
+button,input,select,textarea{font:inherit}
 button{cursor:pointer}
-button:focus-visible,a:focus-visible,input:focus-visible{
-  outline:3px solid #a5d875;
-  outline-offset:3px
+button:focus-visible,input:focus-visible,select:focus-visible{
+  outline:3px solid #a5d875;outline-offset:2px
 }
-.top{
-  text-align:center;background:#073326;color:#f5fff5;
-  padding:9px;font-size:12px;letter-spacing:.15px
-}
-.top strong{color:var(--lime)}
-header{
-  position:sticky;top:0;z-index:5;
-  background:linear-gradient(110deg,#073b29,#176b3a 70%,#20804b);
-  color:white;box-shadow:0 7px 25px rgba(0,48,29,.15)
-}
+header{background:linear-gradient(110deg,#073b29,#176b3a);color:white}
 .head{
-  max-width:1400px;margin:auto;padding:13px 4%;
-  display:flex;align-items:center;gap:22px
+  max-width:1400px;margin:auto;padding:15px 4%;
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap
 }
 .logo{font-size:23px;font-weight:900;white-space:nowrap}
-.logo span{color:var(--lime)}
+.logo span{color:#d9ff8b}
 .search{
-  flex:1;display:flex;align-items:center;
-  background:white;padding:5px 6px 5px 14px;
-  border-radius:12px;gap:8px;
-  box-shadow:0 3px 12px #002d1910
+  flex:1;min-width:200px;display:flex;gap:8px;
+  background:white;border-radius:11px;padding:5px 8px
 }
-.search input{
-  border:0;outline:0;min-width:0;flex:1;
-  padding:10px;color:#18392a;background:transparent
+.search input{flex:1;min-width:0;border:0;outline:0;padding:9px}
+nav{display:flex;gap:0;overflow:auto;justify-content:center;background:#002b2055}
+nav a{color:white;text-decoration:none;padding:13px;font-size:12px;white-space:nowrap}
+nav a:hover{background:#ffffff20}
+main{max-width:1400px;margin:auto;padding:24px 4% 45px}
+button,.btn{
+  border:0;border-radius:9px;padding:10px 14px;font-weight:bold
 }
-.search button{
-  border:0;border-radius:8px;background:var(--g);
-  color:white;padding:9px 15px;font-weight:bold
-}
-.action{
-  background:transparent;color:white;border:0;
-  font-size:12px;font-weight:bold;white-space:nowrap
-}
-nav{
-  display:flex;justify-content:center;overflow:auto;
-  background:#002f2238;scrollbar-width:none
-}
-nav a{
-  color:white;text-decoration:none;padding:13px 14px;
-  font-size:12px;font-weight:bold;white-space:nowrap;
-  transition:background .2s,color .2s
-}
-nav a:hover{background:#ffffff1c;color:var(--lime)}
-
-main{max-width:1400px;margin:auto;padding:25px 4% 45px}
+.primary{background:var(--green);color:white}
+.secondary{background:white;color:var(--green);border:1px solid var(--line)}
+.danger{background:#fff0ed;color:#a72f26}
 .hero{
-  display:grid;grid-template-columns:1.05fr .95fr;
-  min-height:340px;overflow:hidden;border-radius:25px;
-  color:white;
-  background:
-    radial-gradient(ellipse at 5% 100%,#2c8556 0%,transparent 43%),
-    linear-gradient(110deg,#073b29 0%,#087b4c 55%,#47834a 100%);
-  box-shadow:0 18px 45px rgba(3,69,43,.18);
-  border:1px solid #ffffff70
+  display:grid;grid-template-columns:1.1fr .9fr;overflow:hidden;
+  border-radius:24px;color:white;
+  background:linear-gradient(115deg,#073b29,#08784c 70%,#60965b);
+  box-shadow:0 16px 40px #073b2925
 }
-.hero-copy{padding:42px 0 38px 7%;align-self:center;z-index:1}
-.eyebrow{
-  font-size:11px;font-weight:bold;letter-spacing:1.4px;
-  color:#dfff9e
+.heroCopy{padding:40px;align-self:center}
+.eyebrow{font-size:11px;letter-spacing:1.4px;font-weight:bold;color:#d9ff8b}
+h1{font-size:clamp(34px,5vw,60px);line-height:1.03;margin:15px 0}
+.hero p{line-height:1.8;color:#e2f1e4;max-width:470px}
+.hero img{width:100%;height:100%;min-height:290px;object-fit:cover}
+.section{margin-top:34px}
+.heading{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+h2{font-size:24px;margin:0 0 6px}
+.sub{font-size:12px;color:var(--muted);line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.categories{grid-template-columns:repeat(6,minmax(0,1fr))}
+.card{
+  background:#ffffffed;border:1px solid var(--line);border-radius:16px;
+  overflow:hidden;box-shadow:var(--shadow);min-width:0
 }
-.hero h1{
-  font-size:clamp(38px,5vw,64px);line-height:1.02;
-  letter-spacing:-2px;margin:16px 0
+.cardImage{height:150px;background:#f0f6e9;position:relative}
+.cardImage img{width:100%;height:100%;object-fit:contain;padding:10px}
+.cardBody{padding:12px}
+.card h3{font-size:13px;line-height:1.4;margin:7px 0}
+.tag{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)}
+.price{font-size:19px;font-weight:900;color:var(--green)}
+.old{font-size:11px;text-decoration:line-through;color:#89968d;margin-left:5px}
+.stock{font-size:11px;color:var(--muted);margin:8px 0}
+.card .primary{width:100%;margin-top:6px}
+.chip{display:inline-block;background:#e8f4e3;color:#176b3a;padding:5px 8px;border-radius:7px;font-size:10px;font-weight:bold}
+.panel{
+  background:#ffffffdc;border:1px solid var(--line);border-radius:18px;
+  padding:20px;box-shadow:var(--shadow)
 }
-.hero h1 em{font-style:normal;color:#e2ff80}
-.hero p{font-size:14px;line-height:1.8;color:#e4f6e8;max-width:410px}
-.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.cta button{
-  padding:13px 17px;border-radius:10px;
-  font-size:12px;font-weight:bold;transition:transform .2s
+.formGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.field{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:bold}
+.field input,.field select,.field textarea{
+  width:100%;padding:11px;border:1px solid #dbe5d5;
+  border-radius:9px;background:white;color:var(--ink);min-width:0
 }
-.cta button:hover{transform:translateY(-2px)}
-.shop{background:var(--lime);border:0;color:#123d28}
-.more{background:#ffffff14;border:1px solid #ffffff66;color:white}
-.hero-photo{position:relative;min-height:300px;background:#dcebd5}
-.hero-photo img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover}
-.hero-photo:after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(90deg,#087b4c55,transparent 60%)
-}
-.offer-sticker{
-  position:absolute;z-index:1;right:8%;top:13%;
-  background:#fffdf5;color:#134b31;padding:15px;
-  border-radius:14px;transform:rotate(4deg);
-  box-shadow:0 12px 30px #003b2933
-}
-.offer-sticker b{display:block;font-size:28px;color:#e24d2e}
-.offer-sticker small{font-size:10px;font-weight:bold}
-
-.benefits{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:12px;margin:18px 0 37px
-}
-.benefit{
-  display:flex;align-items:center;gap:10px;
-  background:rgba(255,255,255,.83);
-  border:1px solid rgba(220,234,215,.9);
-  border-radius:15px;padding:14px;
-  box-shadow:0 6px 20px #20452a08;
-  transition:transform .2s,box-shadow .2s
-}
-.benefit:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
-.benefit span{font-size:24px}
-.benefit b{font-size:11px;display:block}
-.benefit small{font-size:10px;color:var(--muted);display:block;margin-top:4px}
-
-section{margin:35px 0}
-.heading{
-  display:flex;justify-content:space-between;align-items:end;
-  gap:10px;margin-bottom:16px
-}
-.heading h2{
-  font-size:clamp(21px,2.6vw,29px);
-  margin:0;letter-spacing:-.7px;color:#203c2b
-}
-.heading p{font-size:12px;color:#687c6d;margin:7px 0 0;line-height:1.6}
-.smallbtn{
-  border:1px solid #dce9d8;border-radius:9px;
-  background:rgba(255,255,255,.9);color:var(--g);
-  font-weight:bold;padding:10px 12px;font-size:11px;
-  white-space:nowrap;transition:background .2s
-}
-.smallbtn:hover{background:#eaf5e5}
-
-.categories{
-  display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:12px
-}
-.cat{
-  background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(246,251,241,.9));
-  border:1px solid #e5eee0;border-radius:17px;
-  padding:14px 4px;text-align:center;
-  box-shadow:0 7px 22px #153f2708;
-  transition:transform .2s,box-shadow .2s,border-color .2s;
-  color:var(--ink)
-}
-.cat:hover{
-  transform:translateY(-4px);box-shadow:var(--shadow-hover);
-  border-color:#c6dfbd
-}
-.cat img{
-  width:64px;height:64px;object-fit:cover;border-radius:50%;
-  display:block;margin:0 auto 10px;background:#e6f4df
-}
-.cat b{font-size:10px;line-height:1.4}
-
-.products{
-  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px
-}
-.product{
-  background:rgba(255,255,255,.94);
-  border:1px solid #e7eee3;border-radius:17px;
-  overflow:hidden;box-shadow:0 8px 25px #143f2709;
-  transition:transform .22s,box-shadow .22s,border-color .22s;
-  min-width:0
-}
-.product:hover{
-  transform:translateY(-4px);box-shadow:var(--shadow-hover);
-  border-color:#d1e4c9
-}
-.picture{
-  height:165px;position:relative;
-  background:linear-gradient(145deg,#fffdf8,#eff6e9)
-}
-.picture img{width:100%;height:100%;object-fit:contain;padding:10px}
-.discount{
-  position:absolute;top:9px;left:9px;border-radius:6px;
-  padding:6px 7px;background:#087c48;color:white;
-  font-size:10px;font-weight:900
-}
-.heart{
-  position:absolute;top:8px;right:8px;border:1px solid #edf0e8;
-  border-radius:50%;width:30px;height:30px;background:white;
-  color:#2d5d42;font-size:18px;box-shadow:0 2px 8px #0000000a
-}
-.info{padding:12px}
-.category{
-  font-size:9px;color:#7c8e81;text-transform:uppercase;
-  letter-spacing:.6px;font-weight:bold
-}
-.info h3{font-size:12px;line-height:1.4;min-height:31px;margin:6px 0}
-.pack{font-size:10px;color:#849287}
-.price-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:8px}
-.price{font-size:17px;font-weight:900;color:#086341}
-.old{font-size:10px;color:#89968d;text-decoration:line-through}
-.save{font-size:10px;color:#087c48;font-weight:bold;margin-top:5px}
-.add{
-  width:100%;margin-top:10px;padding:10px 5px;border:0;
-  border-radius:9px;background:linear-gradient(100deg,#086443,#098653);
-  color:white;font-size:11px;font-weight:bold;
-  transition:filter .2s,transform .2s
-}
-.add:hover{filter:brightness(.94);transform:translateY(-1px)}
-
-.banners{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.banner{
-  position:relative;overflow:hidden;min-height:175px;padding:22px;
-  border-radius:19px;color:white;
-  box-shadow:0 12px 28px #173e2416;
-  transition:transform .2s
-}
-.banner:hover{transform:translateY(-3px)}
-.banner h3{font-size:24px;line-height:1.12;margin:12px 0}
-.banner h3 em{font-style:normal;color:#ffef93}
-.banner p{font-size:11px}
-.banner button{
-  background:white;border:0;border-radius:8px;
-  padding:9px 11px;font-size:10px;font-weight:bold
-}
-.banner img{
-  position:absolute;right:0;bottom:0;width:46%;height:85%;
-  object-fit:contain;mix-blend-mode:normal
-}
-.purple{background:linear-gradient(120deg,#42127e,#9339c4)}
-.pink{background:linear-gradient(120deg,#a62d56,#e88cab)}
-.orange{background:linear-gradient(120deg,#9c490c,#e9a12b)}
-.banner .text{position:relative;z-index:1;max-width:65%}
-
-.wide{
-  display:grid;grid-template-columns:1fr .8fr;align-items:center;gap:20px;
-  padding:30px 5%;border-radius:23px;overflow:hidden;color:white;
-  background:
-    radial-gradient(ellipse at 90% 20%,#51ac6570,transparent 40%),
-    linear-gradient(115deg,#073b29,#08784c);
-  box-shadow:0 16px 40px #06442c20
-}
-.wide h2{font-size:clamp(26px,3vw,39px);line-height:1.1;margin:12px 0}
-.wide p{font-size:12px;line-height:1.8;color:#d7eee0}
-.wide img{
-  width:100%;height:190px;object-fit:cover;border-radius:16px;
-  box-shadow:0 12px 30px #002a1b35
-}
-
-.fresh{
-  padding:17px;
-  background:linear-gradient(125deg,rgba(229,243,222,.92),rgba(255,250,240,.96));
-  border:1px solid #e2ecdc;border-radius:22px;
-  box-shadow:0 8px 25px #234a2907
-}
-
-footer{
-  padding:38px 5% 18px;
-  background:
-    radial-gradient(ellipse at 100% 0,#13774d66,transparent 35%),
-    linear-gradient(110deg,#032b20,#06452f);
-  color:white
-}
-.foot{
-  max-width:1300px;margin:auto;
-  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:25px
-}
-footer h3{font-size:13px}
-footer p,footer a{font-size:11px;line-height:1.9;color:#c8dfcf}
-footer a{display:block;text-decoration:none}
-footer a:hover{color:var(--lime)}
-.bottom{
-  max-width:1300px;margin:22px auto 0;padding-top:14px;
-  border-top:1px solid #ffffff30;display:flex;
-  justify-content:space-between;gap:10px;flex-wrap:wrap;
-  font-size:10px;color:#c0d5c6
-}
+.field textarea{min-height:70px;resize:vertical}
+.full{grid-column:1/-1}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rowBetween{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.notice{padding:13px;border-radius:10px;background:#edf6e8;color:#315b39;font-size:12px;line-height:1.7}
+.error{background:#fff0ed;color:#a72f26}
+.productActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.productActions button{flex:1}
+.adminLayout{display:grid;grid-template-columns:210px minmax(0,1fr);gap:18px}
+.sideMenu{display:flex;flex-direction:column;gap:7px}
+.sideMenu button{text-align:left;background:#fff;color:var(--ink);border:1px solid var(--line)}
+.sideMenu button.active{background:#e8f4e3;color:var(--green);border-color:#bcd9b1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.stat{padding:17px;background:#fff;border:1px solid var(--line);border-radius:14px}
+.stat strong{display:block;font-size:23px;color:var(--green);margin-top:7px}
+.tableWrap{overflow:auto}
+table{border-collapse:collapse;width:100%;font-size:12px;min-width:620px}
+th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f0f7ed}
+.empty{padding:24px;text-align:center;color:var(--muted);font-size:13px}
+footer{background:#073b29;color:#d9e9dc;padding:30px 5%;font-size:12px;line-height:1.8}
+footer strong{color:#d9ff8b}
 .toast{
-  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
-  padding:13px 17px;background:#043d2b;color:white;
-  border-radius:10px;font-size:12px;display:none;z-index:20;
-  box-shadow:0 8px 28px #00321e33;max-width:90%;text-align:center
+  position:fixed;bottom:18px;left:50%;transform:translateX(-50%);
+  background:#073b29;color:white;padding:13px 18px;border-radius:10px;
+  display:none;z-index:30;max-width:90%;font-size:12px;box-shadow:var(--shadow)
 }
 .toast.show{display:block}
-.cartbox{
-  position:fixed;right:0;top:0;height:100%;width:min(390px,100%);
-  z-index:15;background:#fbfff8;box-shadow:-10px 0 35px #00321e2b;
-  padding:22px;overflow:auto;display:none
+.overlay{
+  display:none;position:fixed;inset:0;background:#062c20a6;
+  z-index:20;align-items:center;justify-content:center;padding:15px
 }
-.cartbox.open{display:block}
-.cartbox h2{margin-top:0}
-.cartitem{
-  display:flex;justify-content:space-between;gap:12px;
-  border-bottom:1px solid #e0eadb;padding:12px 0;font-size:12px
+.overlay.open{display:flex}
+.dialog{
+  width:min(500px,100%);max-height:90vh;overflow:auto;
+  background:#fffdf8;border-radius:18px;padding:22px;box-shadow:0 20px 60px #001b10aa
 }
-.cartitem button{
-  border:1px solid #dce8d7;border-radius:6px;padding:5px 9px;
-  background:white;color:var(--g)
+.dialog h2{margin-bottom:16px}
+.cartLine{padding:12px 0;border-bottom:1px solid var(--line);font-size:12px}
+.hidden{display:none!important}
+footer a{color:#e1f0df}
+@media(max-width:950px){
+ .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .categories{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .adminLayout{grid-template-columns:1fr}
+ .sideMenu{flex-direction:row;flex-wrap:wrap}
 }
-
-@media(max-width:1000px){
-  .categories{grid-template-columns:repeat(4,1fr)}
-  .products{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .head{gap:12px}
-}
-@media(max-width:650px){
-  .head{display:grid;grid-template-columns:1fr auto;gap:10px}
-  .search{grid-column:1/-1;grid-row:2}
-  nav{justify-content:flex-start}
-  nav a{padding:12px 11px}
-  main{padding:15px 4% 30px}
-  .hero{grid-template-columns:1fr}
-  .hero-copy{padding:29px 23px 14px}
-  .hero h1{font-size:44px}
-  .hero-photo{min-height:210px}
-  .benefits{grid-template-columns:repeat(2,1fr);gap:8px}
-  .benefit{padding:10px;gap:7px}
-  .benefit span{font-size:20px}
-  .categories{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
-  .cat{padding:11px 3px;border-radius:13px}
-  .cat img{width:48px;height:48px}
-  .cat b{font-size:9px}
-  .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
-  .picture{height:140px}
-  .info{padding:10px}
-  .banners{grid-template-columns:1fr;gap:10px}
-  .banner{min-height:145px}
-  .banner h3{font-size:22px}
-  .wide{grid-template-columns:1fr .65fr;padding:20px 15px;gap:10px}
-  .wide img{height:130px}
-  .wide h2{font-size:25px}
-  .foot{grid-template-columns:1fr 1fr;gap:16px}
-  .foot>div:first-child{grid-column:1/-1}
-  .heading{align-items:flex-start}
-  .smallbtn{padding:9px;font-size:10px}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{
-    scroll-behavior:auto!important;
-    transition:none!important;
-    animation:none!important
-  }
+@media(max-width:620px){
+ .head{gap:10px}.search{flex-basis:100%;order:3}
+ main{padding:15px 4% 30px}
+ .hero{grid-template-columns:1fr}.heroCopy{padding:26px 22px}
+ .hero img{min-height:180px;height:210px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .categories{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .cardImage{height:125px}.cardBody{padding:10px}
+ .formGrid{grid-template-columns:1fr}.full{grid-column:auto}
+ h2{font-size:21px}
 }
 </style>
 </head>
-
 <body>
-<div class="top">🌿 GREEN MART V4 SPECIALS — <strong>Fresh finds, fantastic offers, everyday value!</strong></div>
 
 <header>
  <div class="head">
-  <a class="logo" href="#" style="color:white;text-decoration:none">🌿 Green<span>Mart</span></a>
-  <form class="search" id="searchForm">
-   <span style="color:#08784c">⌕</span>
-   <input id="search" placeholder="Search groceries, soaps, snacks, sports and more" aria-label="Search products">
-   <button type="submit">Search</button>
+  <div class="logo">🌿 Green<span>Mart V4</span></div>
+  <form id="searchForm" class="search">
+   <input id="searchInput" placeholder="Search products and departments" aria-label="Search products">
+   <button class="primary">Search</button>
   </form>
-  <button class="action" onclick="setArea()">📍 <span id="area">Delivery area</span></button>
-  <button class="action" onclick="notify('Customer login will be connected to Firebase.')">♙ Account</button>
-  <button class="action" onclick="showCart()">🛒 <span id="count">0</span></button>
+  <button class="secondary" id="loginButton">Login / Account</button>
+  <button class="secondary" id="cartButton">🛒 Cart (<span id="cartCount">0</span>)</button>
  </div>
  <nav>
-  <a href="#categories">☰ Categories</a>
-  <a href="#">Home</a>
-  <a href="#deals">🔥 Offers</a>
-  <a href="#fresh">Fresh Food</a>
-  <a href="#products">Groceries</a>
-  <a href="#products">Snacks</a>
-  <a href="#products">Personal Care</a>
-  <a href="#products">Home & Living</a>
-  <a href="#products">Sports</a>
-  <a href="#categories">More</a>
+  <a href="#home">Home</a><a href="#departments">Departments</a>
+  <a href="#offers">Offers</a><a href="#catalogue">All products</a>
+  <a href="#myOrders">My orders</a>
+  <a href="#staffArea">Staff portal</a>
  </nav>
 </header>
 
 <main>
- <section class="hero">
-  <div class="hero-copy">
+ <section id="home" class="hero">
+  <div class="heroCopy">
    <div class="eyebrow">YOUR NEIGHBOURHOOD SHOPPING DESTINATION</div>
-   <h1>Everyday needs.<br><em>Extra savings.</em></h1>
-   <p>Discover fresh produce, pantry essentials, personal care, home cleaning, sports gear and more — all in one place.</p>
-   <div class="cta">
-    <button class="shop" onclick="document.querySelector('#deals').scrollIntoView({behavior:'smooth'})">Explore today's deals ↗</button>
-    <button class="more" onclick="document.querySelector('#categories').scrollIntoView({behavior:'smooth'})">Shop departments</button>
+   <h1>Everyday needs.<br>Extra savings.</h1>
+   <p>Explore groceries, fresh produce, personal care, home essentials, snacks and more — all in one place.</p>
+   <div class="row">
+    <button class="primary" onclick="document.querySelector('#catalogue').scrollIntoView({behavior:'smooth'})">Start shopping</button>
+    <button class="secondary" onclick="checkDelivery()">Check delivery area</button>
    </div>
   </div>
-  <div class="hero-photo">
-   <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1100&q=85" alt="Fresh vegetables in a grocery market">
-   <div class="offer-sticker"><small>SELECT DEMO ITEMS</small><b>UP TO 50%</b><small>OFF · SAMPLE OFFER</small></div>
-  </div>
+  <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1100&q=85" alt="Fresh vegetables in a market">
  </section>
 
- <div class="benefits">
-  <div class="benefit"><span>🚚</span><div><b>Everyday convenience</b><small>Shop across departments</small></div></div>
-  <div class="benefit"><span>🏷️</span><div><b>Offers to explore</b><small>Discover sample deals</small></div></div>
-  <div class="benefit"><span>🌱</span><div><b>Fresh picks</b><small>Everyday essentials</small></div></div>
-  <div class="benefit"><span>💚</span><div><b>Green Mart</b><small>Quality for daily living</small></div></div>
+ <div class="section notice" id="deliveryMessage">
+  🚚 Delivery is available only within 5 km of the store. Check your location before ordering.
  </div>
 
- <section id="categories">
-  <div class="heading"><div><h2>Shop by department ✨</h2><p>More than groceries — explore the whole store.</p></div></div>
-  <div class="categories" id="catGrid"></div>
+ <section class="section" id="departments">
+  <div class="heading"><div><h2>Shop by department</h2><div class="sub">Find everyday essentials across the store.</div></div></div>
+  <div class="grid categories" id="categoryGrid"></div>
  </section>
 
- <section id="deals">
+ <section class="section" id="offers">
+  <div class="heading"><div><h2>Today's offers</h2><div class="sub">Offers are updated from the store catalogue.</div></div></div>
+  <div class="grid" id="offerGrid"></div>
+ </section>
+
+ <section class="section" id="catalogue">
   <div class="heading">
-   <div><h2>🔥 Deals you'll want to discover</h2><p>Discounts and prices shown here are placeholders for the demo.</p></div>
-   <button class="smallbtn" onclick="showDeals()">View all deals →</button>
+   <div><h2 id="catalogueHeading">All products</h2><div class="sub" id="catalogueSub">Current catalogue from Green Mart.</div></div>
+   <button class="secondary" onclick="resetFilter()">Show all</button>
   </div>
-  <div class="products" id="dealGrid"></div>
+  <div class="grid" id="productGrid"><div class="empty">Loading products…</div></div>
  </section>
 
- <section>
-  <div class="banners">
-   <div class="banner purple">
-    <div class="text"><div class="eyebrow">THE EVERYDAY SALE</div><h3>Big deals.<br><em>Brighter days.</em></h3><p>Discover something for less.</p><button onclick="showDeals()">SHOP OFFERS ↗</button></div>
-    <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=400&q=80" alt="Shopping bags">
-   </div>
-   <div class="banner pink">
-    <div class="text"><div class="eyebrow">PERSONAL CARE</div><h3>Care for you.<br><em>Save on more.</em></h3><p>Everyday self-care essentials.</p><button onclick="pick('Personal Care')">EXPLORE ↗</button></div>
-    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=400&q=80" alt="Skincare products">
-   </div>
-   <div class="banner orange">
-    <div class="text"><div class="eyebrow">SPORTS & FITNESS</div><h3>Get moving.<br><em>Feel great.</em></h3><p>Gear up for your next activity.</p><button onclick="pick('Sports & Fitness')">EXPLORE ↗</button></div>
-    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=400&q=80" alt="Fitness training">
-   </div>
-  </div>
+ <section class="section" id="myOrders">
+  <div class="heading"><div><h2>My orders</h2><div class="sub">Sign in to view your order history.</div></div></div>
+  <div class="panel" id="customerOrders"><div class="empty">Sign in to view your orders.</div></div>
  </section>
 
- <section id="products">
+ <section class="section" id="staffArea">
   <div class="heading">
-   <div><h2 id="productHeading">Popular picks for your home 🛒</h2><p>Search, filter and add demo products to your cart.</p></div>
-   <button class="smallbtn" onclick="resetProducts()">Show all ↗</button>
+   <div><h2>Staff & store management</h2><div class="sub">Sign in using an authorized staff account to manage the store.</div></div>
+   <button class="primary" id="staffLoginButton">Staff login</button>
   </div>
-  <div class="products" id="productGrid"></div>
- </section>
-
- <section class="wide">
-  <div>
-   <div class="eyebrow">YOUR LIST, YOUR LIFESTYLE, YOUR GREEN MART</div>
-   <h2>One store.<br>So many essentials.</h2>
-   <p>From laundry and personal care to kitchen supplies, snacks, stationery and sports accessories — browse more of your everyday world.</p>
-   <button class="shop" onclick="resetProducts()">Explore the collection ↗</button>
+  <div class="panel" id="staffPanel">
+   <div class="empty">Staff dashboard is locked. Authorized staff must sign in first.</div>
   </div>
-  <img src="https://images.unsplash.com/photo-1543168256-418811576931?auto=format&fit=crop&w=700&q=85" alt="Shopping and everyday essentials">
- </section>
-
- <section id="fresh">
-  <div class="heading">
-   <div><h2>🍎 Fresh picks for your day</h2><p>Photographic category inspiration with sample product data.</p></div>
-   <button class="smallbtn" onclick="pick('Fruits & Vegetables')">Shop fresh →</button>
-  </div>
-  <div class="fresh"><div class="products" id="freshGrid"></div></div>
  </section>
 </main>
 
 <footer>
- <div class="foot">
-  <div><div class="logo">🌿 Green<span>Mart</span></div><p>Your everyday destination for groceries, fresh produce, personal care, home essentials, sports and more.</p></div>
-  <div><h3>Shop departments</h3><a href="#categories">All categories</a><a href="#fresh">Fresh produce</a><a href="#products">Groceries & snacks</a><a href="#products">Personal care</a><a href="#products">Sports & home</a></div>
-  <div><h3>Customer help</h3><a href="#products" onclick="notify('Order tracking is not connected yet.')">Track orders</a><a href="#products" onclick="notify('Returns policy will be added before launch.')">Returns & refunds</a><a href="#products" onclick="notify('Official store contact details will be added.')">Contact us</a></div>
-  <div><h3>Green Mart V4</h3><p>Freshness · Quality · Savings</p><p>Offers and prices must be confirmed by the store before launch.</p></div>
- </div>
- <div class="bottom"><span>© <span id="year"></span> Green Mart V4</span><span>Demo storefront · Sample offers and prices are not live promotions.</span></div>
+ <strong>🌿 Green Mart V4</strong><br>
+ Everyday shopping, freshness and value.<br>
+ Demo note: live orders and catalogue require Firebase configuration and correct security rules.
 </footer>
 
-<aside class="cartbox" id="cart" aria-label="Shopping cart">
- <button onclick="hideCart()" style="float:right">✕ Close</button>
- <h2>Your shopping cart 🛒</h2>
- <div id="cartItems"></div>
- <hr>
- <p id="subtotal"></p>
- <p style="font-size:11px;color:#718579">Demo cart only. Secure checkout and inventory are not connected.</p>
- <button class="shop" style="width:100%;padding:13px" onclick="notify('Secure checkout will be integrated after Firebase setup.')">Continue (demo)</button>
-</aside>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script>
+<div class="overlay" id="authOverlay">
+ <div class="dialog">
+  <div class="rowBetween"><h2 id="authTitle">Sign in</h2><button class="secondary" onclick="closeDialog('authOverlay')">✕</button></div>
+  <p class="sub">Use your customer or authorized staff account.</p>
+  <form id="authForm" class="formGrid">
+   <label class="field full">Email address<input id="authEmail" type="email" required autocomplete="email"></label>
+   <label class="field full">Password<input id="authPassword" type="password" required minlength="6" autocomplete="current-password"></label>
+   <div class="full row">
+    <button class="primary" type="submit" id="authSubmit">Sign in</button>
+    <button class="secondary" type="button" id="signupButton">Create customer account</button>
+   </div>
+  </form>
+  <p class="sub">Staff accounts must be authorized by the store administrator in Firebase. Creating a customer account does not grant staff access.</p>
+ </div>
+</div>
+
+<div class="overlay" id="cartOverlay">
+ <div class="dialog">
+  <div class="rowBetween"><h2>Your shopping cart</h2><button class="secondary" onclick="closeDialog('cartOverlay')">✕</button></div>
+  <div id="cartLines"></div>
+  <div class="rowBetween" style="margin-top:16px"><strong>Subtotal</strong><strong id="cartSubtotal">₹0</strong></div>
+  <p class="sub">Delivery fees, taxes and payment processing must be configured before production use.</p>
+  <button class="primary" style="width:100%" id="checkoutButton">Check delivery & place order</button>
+ </div>
+</div>
+
+<div class="overlay" id="productOverlay">
+ <div class="dialog">
+  <div class="rowBetween"><h2 id="productFormTitle">Add product</h2><button class="secondary" onclick="closeDialog('productOverlay')">✕</button></div>
+  <form id="productForm" class="formGrid">
+   <input type="hidden" id="editProductId">
+   <label class="field full">Product name<input id="pName" required maxlength="120"></label>
+   <label class="field">Category
+    <select id="pCategory" required>
+     <option>Fruits & Vegetables</option><option>Groceries & Staples</option>
+     <option>Snacks & Beverages</option><option>Personal Care</option>
+     <option>Home & Cleaning</option><option>Sports & Fitness</option>
+     <option>Baby Care</option><option>Kitchen & Home</option>
+     <option>Dairy & Eggs</option><option>Stationery & School</option>
+     <option>Packaged Foods</option><option>Pet Supplies</option><option>Other</option>
+    </select>
+   </label>
+   <label class="field">Unit / pack<input id="pPack" required placeholder="e.g. 1 kg"></label>
+   <label class="field">Selling price (₹)<input id="pPrice" type="number" min="0" step=".01" required></label>
+   <label class="field">MRP (₹)<input id="pMrp" type="number" min="0" step=".01" required></label>
+   <label class="field">Stock quantity<input id="pStock" type="number" min="0" step="1" required></label>
+   <label class="field">Offer enabled?
+    <select id="pOffer"><option value="false">No offer</option><option value="true">Enable offer</option></select>
+   </label>
+   <label class="field full">Product image URL<input id="pImage" type="url" placeholder="https://…"></label>
+   <label class="field full">Description<textarea id="pDescription" maxlength="1000"></textarea></label>
+   <label class="field full"><span><input id="pActive" type="checkbox" checked style="width:auto"> Product visible to customers</span></label>
+   <div class="full row"><button class="primary" type="submit">Save product</button><button class="secondary" type="button" onclick="closeDialog('productOverlay')">Cancel</button></div>
+  </form>
+ </div>
+</div>
+
+<div class="overlay" id="settingsOverlay">
+ <div class="dialog">
+  <div class="rowBetween"><h2>Store delivery settings</h2><button class="secondary" onclick="closeDialog('settingsOverlay')">✕</button></div>
+  <p class="sub">Enter the exact latitude and longitude of the supermarket. Delivery radius is fixed at 5 km in this version.</p>
+  <form id="settingsForm" class="formGrid">
+   <label class="field full">Store name<input id="storeName" required maxlength="120"></label>
+   <label class="field">Latitude<input id="storeLat" type="number" step="any" min="-90" max="90" required></label>
+   <label class="field">Longitude<input id="storeLng" type="number" step="any" min="-180" max="180" required></label>
+   <div class="full notice">Find the store coordinates using a map service. Do not leave coordinates at 0,0; delivery will remain disabled until a valid store location is saved.</div>
+   <div class="full row"><button class="primary" type="submit">Save settings</button></div>
+  </form>
+ </div>
+</div>
+
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+ getAuth,onAuthStateChanged,signInWithEmailAndPassword,
+ createUserWithEmailAndPassword,signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {
+ getFirestore,collection,doc,getDoc,addDoc,setDoc,updateDoc,
+ deleteDoc,onSnapshot,query,where,orderBy,limit,serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* Existing Green Mart V4 Firebase project configuration */
+const firebaseConfig={
+ apiKey:"AIzaSyAZjSIkyMTn3uc4I8MA1IQ9mtaMqLW5jnk",
+ authDomain:"green-mart-v4-5e12b.firebaseapp.com",
+ projectId:"green-mart-v4-5e12b",
+ storageBucket:"green-mart-v4-5e12b.firebasestorage.app",
+ messagingSenderId:"659527650541",
+ appId:"1:659527650541:web:a06cdbd98e3cbf1e1910e4",
+ measurementId:"G-78YX3F53V7"
+};
+
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getFirestore(app);
+const $=id=>document.getElementById(id);
+const money=n=>"₹"+Number(n||0).toLocaleString("en-IN",{maximumFractionDigits:2});
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const categories=[
-["Fruits & Vegetables","https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=180&q=75"],
-["Groceries & Staples","https://images.unsplash.com/photo-1604719312566-8912e9c8a213?auto=format&fit=crop&w=180&q=75"],
-["Snacks & Beverages","https://images.unsplash.com/photo-1621939514649-280e2aa2f4b9?auto=format&fit=crop&w=180&q=75"],
-["Personal Care","https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=180&q=75"],
-["Home & Cleaning","https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=180&q=75"],
-["Sports & Fitness","https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=180&q=75"],
-["Baby Care","https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=180&q=75"],
-["Kitchen & Home","https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=180&q=75"],
-["Dairy & Eggs","https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=180&q=75"],
-["Stationery & School","https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=180&q=75"],
-["Packaged Foods","https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=180&q=75"],
-["Pet Supplies","https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=180&q=75"]
+"Fruits & Vegetables","Groceries & Staples","Snacks & Beverages",
+"Personal Care","Home & Cleaning","Sports & Fitness","Baby Care",
+"Kitchen & Home","Dairy & Eggs","Stationery & School",
+"Packaged Foods","Pet Supplies","Other"
 ];
 
-const products=[
-[1,"Basmati Rice","Groceries & Staples","1 kg",299,499,40,"https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=500&q=80"],
-[2,"Fresh Bananas","Fruits & Vegetables","1 dozen",24,48,50,"https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=500&q=80"],
-[3,"Skincare Essentials","Personal Care","Pack",219,340,35,"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=500&q=80"],
-[4,"Potato Chips","Snacks & Beverages","Pack",18,33,45,"https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&w=500&q=80"],
-[5,"Home Cleaning Supplies","Home & Cleaning","Pack",199,499,60,"https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=500&q=80"],
-[6,"Fresh Dairy Selection","Dairy & Eggs","Pack",205,295,30,"https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=500&q=80"],
-[7,"Fitness Essentials","Sports & Fitness","Set",399,549,27,"https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=500&q=80"],
-[8,"Baby Essentials","Baby Care","Pack",89,120,26,"https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=500&q=80"],
-[9,"Kitchen Essentials","Kitchen & Home","Set",249,349,29,"https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=500&q=80"],
-[10,"Notebook & Stationery","Stationery & School","Set",99,140,29,"https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=500&q=80"],
-[11,"Red Apples","Fruits & Vegetables","500 g",149,199,25,"https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=500&q=80"],
-[12,"Fresh Broccoli","Fruits & Vegetables","1 piece",79,99,20,"https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?auto=format&fit=crop&w=500&q=80"],
-[13,"Fresh Tomatoes","Fruits & Vegetables","500 g",49,65,25,"https://images.unsplash.com/photo-1546094096-0df4bcaaa337?auto=format&fit=crop&w=500&q=80"],
-[14,"Fresh Carrots","Fruits & Vegetables","500 g",39,49,20,"https://images.unsplash.com/photo-1445282768818-728615cc910a?auto=format&fit=crop&w=500&q=80"],
-[15,"Fresh Oranges","Fruits & Vegetables","500 g",59,79,25,"https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=500&q=80"]
-].map(a=>({id:a[0],name:a[1],cat:a[2],pack:a[3],price:a[4],old:a[5],off:a[6],img:a[7]}));
+let user=null,staff=null,products=[],cart={},filterCategory="",searchText="";
+let store={name:"Green Mart V4",latitude:null,longitude:null,radiusKm:5};
+let unsubscribeProducts=null,unsubscribeOrders=null,unsubscribeCustomerOrders=null;
+let customerLocation=null,authMode="signin";
 
-let cart={},wishlist=new Set(),selected="",query="",offerMode=false;
-const el=id=>document.getElementById(id);
-const money=n=>"₹"+n.toLocaleString("en-IN");
+function toast(message){
+ $("toast").textContent=message;
+ $("toast").classList.add("show");
+ setTimeout(()=>$("toast").classList.remove("show"),3000);
+}
+function openDialog(id){$(id).classList.add("open")}
+function closeDialog(id){$(id).classList.remove("open")}
+function isStaff(){return !!(user&&staff&&staff.active===true)}
+function isAdmin(){return isStaff()&&staff.role==="admin"}
 
-function notify(t){
-  el("toast").textContent=t;
-  el("toast").classList.add("show");
-  setTimeout(()=>el("toast").classList.remove("show"),2400);
+function productData(p,id){
+ return {
+  id:id||p.id,name:String(p.name||""),
+  category:String(p.category||"Other"),pack:String(p.pack||""),
+  price:Number(p.price||0),mrp:Number(p.mrp||0),
+  stock:Number(p.stock||0),offer:p.offer===true,
+  image:String(p.image||""),description:String(p.description||""),
+  active:p.active!==false
+ };
 }
 
-function productCard(p){
-  return `<article class="product">
-    <div class="picture">
-      <img loading="lazy" src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.parentElement.style.background='#e3f2df'">
-      <span class="discount">${p.off}% OFF*</span>
-      <button class="heart" onclick="wish(${p.id})" aria-label="Add to wishlist">${wishlist.has(p.id)?"♥":"♡"}</button>
-    </div>
-    <div class="info">
-      <div class="category">${p.cat}</div>
-      <h3>${p.name}</h3>
-      <div class="pack">${p.pack}</div>
-      <div class="price-row"><span class="price">${money(p.price)}</span><span class="old">${money(p.old)}</span></div>
-      <div class="save">You save ${money(p.old-p.price)}*</div>
-      <button class="add" onclick="add(${p.id})">＋ Add to cart</button>
-    </div>
-  </article>`;
+function safeImage(url){
+ try{
+  const u=new URL(url);
+  return u.protocol==="https:"?u.href:"";
+ }catch{return ""}
 }
 
-function render(){
-  const list=products.filter(p=>
-    (!selected||p.cat===selected)&&
-    (!query||(p.name+" "+p.cat).toLowerCase().includes(query))&&
-    (!offerMode||p.off>=25)
-  );
-  el("productGrid").innerHTML=list.length
-    ?list.map(productCard).join("")
-    :"<p>No matching demo products. Try another search.</p>";
-  el("productHeading").textContent=selected||
-    (offerMode?"All demo offers":"Popular picks for your home 🛒");
+function discount(p){
+ if(!p.offer||p.mrp<=0||p.price>=p.mrp)return 0;
+ return Math.round((p.mrp-p.price)/p.mrp*100);
 }
 
-function pick(c){
-  selected=c;query="";offerMode=false;el("search").value="";
-  render();el("products").scrollIntoView({behavior:"smooth"});
+function card(p){
+ const out=p.stock<=0;
+ const off=discount(p);
+ const image=safeImage(p.image);
+ return `<article class="card">
+  <div class="cardImage">
+   ${image?`<img loading="lazy" src="${esc(image)}" alt="${esc(p.name)}" onerror="this.style.display='none'">`:""}
+   ${off?`<span class="chip" style="position:absolute;left:8px;top:8px">${off}% OFF</span>`:""}
+  </div>
+  <div class="cardBody">
+   <div class="tag">${esc(p.category)}</div>
+   <h3>${esc(p.name)}</h3>
+   <div class="sub">${esc(p.pack)}</div>
+   <div style="margin-top:8px"><span class="price">${money(p.price)}</span>
+    ${p.mrp>p.price?`<span class="old">${money(p.mrp)}</span>`:""}
+   </div>
+   <div class="stock">${out?"Out of stock":p.stock<=5?`Only ${p.stock} left`:"In stock"}</div>
+   ${p.description?`<div class="sub">${esc(p.description)}</div>`:""}
+   <button class="primary" ${out?"disabled":""} onclick="window.gmAdd('${esc(p.id)}')">${out?"Unavailable":"＋ Add to cart"}</button>
+  </div>
+ </article>`;
 }
-function showDeals(){
-  selected="";query="";offerMode=true;
-  render();el("products").scrollIntoView({behavior:"smooth"});
+
+function visibleProducts(){
+ return products.filter(p=>p.active&&
+  (!filterCategory||p.category===filterCategory)&&
+  (!searchText||(p.name+" "+p.category+" "+p.description).toLowerCase().includes(searchText))
+ );
 }
-function resetProducts(){
-  selected="";query="";offerMode=false;el("search").value="";
-  render();
+function renderProducts(){
+ const list=visibleProducts();
+ $("catalogueHeading").textContent=filterCategory|| (searchText?"Search results":"All products");
+ $("catalogueSub").textContent=`${list.length} product(s) available in this catalogue. Stock is subject to confirmation.`;
+ $("productGrid").innerHTML=list.length?list.map(card).join():'<div class="empty">No matching products found.</div>';
+ const offers=list.filter(p=>p.offer&&p.price<p.mrp);
+ $("offerGrid").innerHTML=offers.length?offers.map(card).join():'<div class="empty">No active offers right now.</div>';
 }
-function wish(id){
-  wishlist.has(id)?wishlist.delete(id):wishlist.add(id);
-  render();
-  el("dealGrid").innerHTML=products.filter(p=>p.off>=25).slice(0,5).map(productCard).join("");
-  el("freshGrid").innerHTML=products.filter(p=>p.cat==="Fruits & Vegetables").map(productCard).join("");
-  notify(wishlist.has(id)?"Added to wishlist":"Removed from wishlist");
+function renderCategories(){
+ $("categoryGrid").innerHTML=categories.map(c=>
+  `<button class="secondary" onclick="window.gmPick('${esc(c)}')" style="padding:18px 8px;background:#ffffffdc">
+   <div style="font-size:23px">🛍️</div><div style="font-size:11px;margin-top:7px">${esc(c)}</div>
+  </button>`
+ ).join("");
 }
-function add(id){
-  cart[id]=(cart[id]||0)+1;
-  renderCart();notify("Added to your cart 🛒");
-}
-function change(id,n){
-  cart[id]=(cart[id]||0)+n;
-  if(cart[id]<=0)delete cart[id];
-  renderCart();
-}
+window.gmPick=c=>{
+ filterCategory=c;searchText="";$("searchInput").value="";
+ renderProducts();$("catalogue").scrollIntoView({behavior:"smooth"});
+};
+window.gmAdd=id=>{
+ const p=products.find(x=>x.id===id);
+ if(!p||!p.active||p.stock<=0){toast("This product is currently unavailable.");return}
+ cart[id]=(cart[id]||0)+1;
+ if(cart[id]>p.stock){cart[id]=p.stock;toast("Cart quantity limited to available stock.");}
+ renderCart();
+};
+window.gmCartChange=(id,n)=>{
+ cart[id]=(cart[id]||0)+n;
+ if(cart[id]<=0)delete cart[id];
+ const p=products.find(x=>x.id===id);
+ if(p&&cart[id]>p.stock)cart[id]=p.stock;
+ if(cart[id]<=0)delete cart[id];
+ renderCart();
+};
 function renderCart(){
-  const entries=Object.entries(cart);
-  el("count").textContent=entries.reduce((s,[,n])=>s+n,0);
-  el("cartItems").innerHTML=entries.length?entries.map(([id,n])=>{
-    const p=products.find(x=>x.id==id);
-    return `<div class="cartitem">
-      <div><b>${p.name}</b><br>${money(p.price)} × ${n}</div>
-      <div><button onclick="change(${id},-1)" aria-label="Remove one">−</button> ${n} <button onclick="change(${id},1)" aria-label="Add one">+</button></div>
-    </div>`;
-  }).join(""):"<p>Your cart is empty. Start shopping!</p>";
-  const total=entries.reduce((s,[id,n])=>s+products.find(p=>p.id==id).price*n,0);
-  el("subtotal").innerHTML="<b>Subtotal: "+money(total)+"</b>";
+ const entries=Object.entries(cart).filter(([id,n])=>n>0&&products.some(p=>p.id===id&&p.active));
+ cart=Object.fromEntries(entries);
+ $("cartCount").textContent=entries.reduce((s,[,n])=>s+n,0);
+ $("cartLines").innerHTML=entries.length?entries.map(([id,n])=>{
+  const p=products.find(x=>x.id===id);
+  return `<div class="cartLine"><div class="rowBetween">
+   <div><strong>${esc(p.name)}</strong><br>${money(p.price)} × ${n}</div>
+   <div class="row"><button class="secondary" onclick="window.gmCartChange('${esc(id)}',-1)">−</button>${n}<button class="secondary" onclick="window.gmCartChange('${esc(id)}',1)">+</button></div>
+  </div></div>`;
+ }).join():'<div class="empty">Your cart is empty.</div>';
+ const total=entries.reduce((s,[id,n])=>s+products.find(p=>p.id===id).price*n,0);
+ $("cartSubtotal").textContent=money(total);
 }
-function showCart(){el("cart").classList.add("open")}
-function hideCart(){el("cart").classList.remove("open")}
-function setArea(){
-  const a=prompt("Enter your delivery area");
-  if(a&&a.trim())el("area").textContent=a.trim();
+function resetFilter(){filterCategory="";searchText="";$("searchInput").value="";renderProducts()}
+window.resetFilter=resetFilter;
+
+$("searchForm").addEventListener("submit",e=>{
+ e.preventDefault();searchText=$("searchInput").value.trim().toLowerCase();filterCategory="";
+ renderProducts();$("catalogue").scrollIntoView({behavior:"smooth"});
+});
+$("cartButton").onclick=()=>openDialog("cartOverlay");
+$("loginButton").onclick=()=>openDialog("authOverlay");
+$("staffLoginButton").onclick=()=>openDialog("authOverlay");
+
+$("authForm").addEventListener("submit",async e=>{
+ e.preventDefault();
+ try{
+  const email=$("authEmail").value.trim(),password=$("authPassword").value;
+  if(authMode==="signup"){
+   await createUserWithEmailAndPassword(auth,email,password);
+   toast("Customer account created.");
+  }else{
+   await signInWithEmailAndPassword(auth,email,password);
+   toast("Signed in successfully.");
+  }
+  closeDialog("authOverlay");
+ }catch(err){toast(err.message||"Authentication failed.");}
+});
+$("signupButton").onclick=()=>{
+ authMode=authMode==="signup"?"signin":"signup";
+ $("authTitle").textContent=authMode==="signup"?"Create customer account":"Sign in";
+ $("authSubmit").textContent=authMode==="signup"?"Create account":"Sign in";
+ $("signupButton").textContent=authMode==="signup"?"Back to sign in":"Create customer account";
+};
+
+function distanceKm(a,b,c,d){
+ const rad=x=>x*Math.PI/180;
+ const R=6371;
+ const x=rad(c-a),y=rad(d-b);
+ const h=Math.sin(x/2)**2+Math.cos(rad(a))*Math.cos(rad(c))*Math.sin(y/2)**2;
+ return 2*R*Math.asin(Math.min(1,Math.sqrt(h)));
+}
+function storeLocationValid(){
+ return Number.isFinite(Number(store.latitude))&&Number.isFinite(Number(store.longitude))&&
+  Math.abs(Number(store.latitude))<=90&&Math.abs(Number(store.longitude))<=180&&
+  !(Number(store.latitude)===0&&Number(store.longitude)===0);
+}
+function withinRadius(lat,lng){
+ if(!storeLocationValid())return {ok:false,message:"The store's delivery location has not been configured yet."};
+ const km=distanceKm(Number(store.latitude),Number(store.longitude),lat,lng);
+ return {ok:km<=5,distance:km,message:km<=5?
+  `You're within the delivery area (${km.toFixed(2)} km from the store).`:
+  `Sorry, this location is ${km.toFixed(2)} km away. Delivery is limited to 5 km.`};
+}
+async function getCustomerLocation(){
+ return new Promise((resolve,reject)=>{
+  if(!navigator.geolocation){reject(new Error("Location services are not supported by this browser."));return;}
+  navigator.geolocation.getCurrentPosition(
+   pos=>resolve({latitude:pos.coords.latitude,longitude:pos.coords.longitude}),
+   err=>reject(new Error(err.code===1?"Please allow location access to check delivery eligibility.":"Could not determine your location. Please try again.")),
+   {enableHighAccuracy:true,timeout:15000,maximumAge:0}
+  );
+ });
+}
+window.checkDelivery=async()=>{
+ $("deliveryMessage").textContent="Checking your delivery location…";
+ try{
+  customerLocation=await getCustomerLocation();
+  const result=withinRadius(customerLocation.latitude,customerLocation.longitude);
+  $("deliveryMessage").textContent=result.message;
+  $("deliveryMessage").classList.toggle("error",!result.ok);
+  toast(result.message);
+ }catch(err){
+  $("deliveryMessage").textContent=err.message;
+  $("deliveryMessage").classList.add("error");
+ }
+};
+
+$("checkoutButton").onclick=async()=>{
+ if(!user){toast("Please sign in before placing an order.");openDialog("authOverlay");return}
+ const entries=Object.entries(cart).filter(([,n])=>n>0);
+ if(!entries.length){toast("Your cart is empty.");return}
+ try{
+  toast("Checking your delivery location…");
+  customerLocation=await getCustomerLocation();
+  const result=withinRadius(customerLocation.latitude,customerLocation.longitude);
+  $("deliveryMessage").textContent=result.message;
+  $("deliveryMessage").classList.toggle("error",!result.ok);
+  if(!result.ok){toast(result.message);return}
+
+  const lines=entries.map(([id,quantity])=>{
+   const p=products.find(x=>x.id===id);
+   if(!p||!p.active||p.stock<quantity)throw new Error("Stock changed for a product in your cart. Please review your cart.");
+   return {productId:id,name:p.name,quantity,unitPrice:p.price,lineTotal:p.price*quantity};
+  });
+  const total=lines.reduce((s,x)=>s+x.lineTotal,0);
+
+  // Prices are copied into the order for a record. Trusted server-side
+  // validation and atomic stock deduction are required before production.
+  const ref=await addDoc(collection(db,"orders"),{
+   customerUid:user.uid,customerEmail:user.email||"",
+   items:lines,subtotal:total,
+   deliveryLocation:customerLocation,
+   deliveryDistanceKm:Number(result.distance.toFixed(3)),
+   status:"Pending",paymentStatus:"Unpaid",
+   createdAt:serverTimestamp(),updatedAt:serverTimestamp()
+  });
+  cart={};renderCart();closeDialog("cartOverlay");
+  toast("Order submitted. Reference: "+ref.id);
+ }catch(err){toast(err.message||"Could not submit the order.");}
+};
+
+function renderCustomerOrders(rows){
+ if(!user){$("customerOrders").innerHTML='<div class="empty">Sign in to view your orders.</div>';return}
+ $("customerOrders").innerHTML=rows.length?rows.map(o=>{
+  const items=Array.isArray(o.items)?o.items:[];
+  return `<div class="cartLine">
+   <div class="rowBetween"><strong>Order ${esc(o.id)}</strong><span class="chip">${esc(o.status||"Pending")}</span></div>
+   <div class="sub" style="margin:8px 0">${items.map(i=>`${esc(i.name)} × ${Number(i.quantity||0)}`).join("<br>")}</div>
+   <div class="rowBetween"><span>${esc(o.paymentStatus||"Unpaid")}</span><strong>${money(o.subtotal)}</strong></div>
+  </div>`;
+ }).join():'<div class="empty">No orders yet.</div>';
 }
 
-el("searchForm").addEventListener("submit",e=>{
-  e.preventDefault();
-  query=el("search").value.trim().toLowerCase();
-  selected="";offerMode=false;
-  render();el("products").scrollIntoView({behavior:"smooth"});
+function staffDashboard(){
+ if(!isStaff()){
+  $("staffPanel").innerHTML='<div class="empty">Staff dashboard is locked. Sign in using an account authorized in the Firebase staff collection.</div>';
+  return;
+ }
+ $("staffPanel").innerHTML=`
+  <div class="notice">Signed in as ${esc(user.email||"staff")} · Role: ${esc(staff.role||"staff")}. Product changes are shared through Firebase.</div>
+  <div class="row" style="margin:14px 0">
+   <button class="primary" id="newProductButton">＋ Add product</button>
+   <button class="secondary" id="storeSettingsButton">Store & delivery settings</button>
+   <button class="secondary" id="refreshOrdersButton">Refresh orders</button>
+   <button class="secondary" id="exportButton">Export catalogue CSV</button>
+  </div>
+  <div class="stats">
+   <div class="stat"><span class="sub">Active products</span><strong>${products.filter(p=>p.active).length}</strong></div>
+   <div class="stat"><span class="sub">Low stock (5 or less)</span><strong>${products.filter(p=>p.active&&p.stock<=5).length}</strong></div>
+   <div class="stat"><span class="sub">Out of stock</span><strong>${products.filter(p=>p.active&&p.stock<=0).length}</strong></div>
+   <div class="stat"><span class="sub">Catalogue products</span><strong>${products.length}</strong></div>
+  </div>
+  <div class="heading"><div><h2>Product inventory</h2><div class="sub">Edit prices, offers, stock, photos, categories and visibility.</div></div></div>
+  <div class="tableWrap"><table><thead><tr><th>Product</th><th>Price / MRP</th><th>Stock</th><th>Offer</th><th>Visibility</th><th>Actions</th></tr></thead><tbody id="inventoryRows"></tbody></table></div>
+  <div class="heading" style="margin-top:28px"><div><h2>Customer orders</h2><div class="sub">Update fulfilment status. Confirm payments separately.</div></div></div>
+  <div id="staffOrders"><div class="empty">Loading orders…</div></div>`;
+ $("newProductButton").onclick=()=>editProduct();
+ $("storeSettingsButton").onclick=showSettings;
+ $("refreshOrdersButton").onclick=loadStaffOrders;
+ $("exportButton").onclick=exportCSV;
+ renderInventory();
+ loadStaffOrders();
+}
+
+function renderInventory(){
+ const target=$("inventoryRows");
+ if(!target)return;
+ target.innerHTML=products.length?products.map(p=>`<tr>
+  <td><strong>${esc(p.name)}</strong><br><span class="sub">${esc(p.category)} · ${esc(p.pack)}</span></td>
+  <td>${money(p.price)} / ${money(p.mrp)}</td>
+  <td>${p.stock}</td><td>${p.offer?"Enabled":"—"}</td>
+  <td>${p.active?"Visible":"Hidden"}</td>
+  <td><div class="row"><button class="secondary" onclick="window.gmEdit('${esc(p.id)}')">Edit</button>${isAdmin()?`<button class="danger" onclick="window.gmDelete('${esc(p.id)}')">Delete</button>`:""}</div></td>
+ </tr>`).join():'<tr><td colspan="6">No products yet. Add your first product.</td></tr>';
+}
+function editProduct(id=""){
+ if(!isStaff())return;
+ const p=products.find(x=>x.id===id);
+ $("productForm").reset();
+ $("editProductId").value=id;
+ $("productFormTitle").textContent=p?"Edit product":"Add product";
+ if(p){
+  $("pName").value=p.name;$("pCategory").value=categories.includes(p.category)?p.category:"Other";
+  $("pPack").value=p.pack;$("pPrice").value=p.price;$("pMrp").value=p.mrp;
+  $("pStock").value=p.stock;$("pOffer").value=String(p.offer);
+  $("pImage").value=p.image;$("pDescription").value=p.description;
+  $("pActive").checked=p.active;
+ }else{
+  $("pStock").value=0;$("pPrice").value=0;$("pMrp").value=0;
+  $("pActive").checked=true;
+ }
+ openDialog("productOverlay");
+}
+window.gmEdit=id=>editProduct(id);
+window.gmDelete=async id=>{
+ if(!isAdmin()){toast("Only an admin can delete products.");return}
+ if(!confirm("Permanently delete this product?"))return;
+ try{await deleteDoc(doc(db,"products",id));toast("Product deleted.");}
+ catch(e){toast(e.message||"Delete failed.");}
+};
+
+$("productForm").addEventListener("submit",async e=>{
+ e.preventDefault();
+ if(!isStaff()){toast("Staff authorization required.");return}
+ const price=Number($("pPrice").value),mrp=Number($("pMrp").value),stock=Number($("pStock").value);
+ if(price<0||mrp<price||stock<0||!Number.isInteger(stock)){
+  toast("Check prices and stock. MRP must be at least the selling price.");return;
+ }
+ const id=$("editProductId").value;
+ const data={
+  name:$("pName").value.trim(),category:$("pCategory").value,
+  pack:$("pPack").value.trim(),price,mrp,stock,
+  offer:$("pOffer").value==="true",image:safeImage($("pImage").value),
+  description:$("pDescription").value.trim(),active:$("pActive").checked,
+  updatedAt:serverTimestamp(),updatedBy:user.uid
+ };
+ try{
+  if(id)await updateDoc(doc(db,"products",id),data);
+  else await addDoc(collection(db,"products"),{...data,createdAt:serverTimestamp()});
+  closeDialog("productOverlay");toast("Product saved.");
+ }catch(err){toast(err.message||"Could not save product.");}
 });
 
-el("catGrid").innerHTML=categories.map(c=>
-  `<button class="cat" onclick="pick('${c[0]}')">
-    <img loading="lazy" src="${c[1]}" alt="${c[0]}" onerror="this.style.visibility='hidden'">
-    <b>${c[0]}</b>
-  </button>`
-).join("");
+function showSettings(){
+ if(!isStaff()){toast("Staff authorization required.");return}
+ $("storeName").value=store.name||"Green Mart V4";
+ $("storeLat").value=store.latitude??"";
+ $("storeLng").value=store.longitude??"";
+ openDialog("settingsOverlay");
+}
+$("settingsForm").addEventListener("submit",async e=>{
+ e.preventDefault();
+ if(!isStaff())return;
+ const latitude=Number($("storeLat").value),longitude=Number($("storeLng").value);
+ if(!Number.isFinite(latitude)||Math.abs(latitude)>90||
+    !Number.isFinite(longitude)||Math.abs(longitude)>180||
+    (latitude===0&&longitude===0)){
+  toast("Enter valid coordinates for the supermarket.");return;
+ }
+ const settings={name:$("storeName").value.trim(),latitude,longitude,radiusKm:5,updatedAt:serverTimestamp()};
+ try{
+  await setDoc(doc(db,"settings","store"),settings,{merge:true});
+  store={...settings};closeDialog("settingsOverlay");toast("Store delivery settings saved.");
+ }catch(err){toast(err.message||"Could not save settings.");}
+});
 
-el("dealGrid").innerHTML=products.filter(p=>p.off>=25).slice(0,5).map(productCard).join("");
-el("freshGrid").innerHTML=products.filter(p=>p.cat==="Fruits & Vegetables").map(productCard).join("");
-el("year").textContent=new Date().getFullYear();
-render();
+function statusOptions(current){
+ return ["Pending","Accepted","Packing","Ready for dispatch","Out for delivery","Delivered","Cancelled"].map(s=>
+  `<option ${s===current?"selected":""}>${s}</option>`).join("");
+}
+async function loadStaffOrders(){
+ if(!isStaff())return;
+ try{
+  const snap=await query(collection(db,"orders"),orderBy("createdAt","desc"),limit(100));
+  const {getDocs}=await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js");
+  const result=await getDocs(snap);
+  const rows=result.docs.map(d=>({id:d.id,...d.data()}));
+  const target=$("staffOrders");if(!target)return;
+  target.innerHTML=rows.length?`<div class="tableWrap"><table><thead><tr><th>Order</th><th>Customer</th><th>Items / total</th><th>Payment</th><th>Status</th><th>Save</th></tr></thead><tbody>${rows.map(o=>`<tr>
+   <td>${esc(o.id)}<br><span class="sub">${esc(o.customerEmail||"")}</span></td>
+   <td>${esc(o.customerUid||"")}</td>
+   <td>${(o.items||[]).map(i=>`${esc(i.name)} × ${Number(i.quantity||0)}`).join("<br>")}<br><strong>${money(o.subtotal)}</strong></td>
+   <td>${esc(o.paymentStatus||"Unpaid")}</td>
+   <td><select id="status-${esc(o.id)}">${statusOptions(o.status||"Pending")}</select></td>
+   <td><button class="primary" onclick="window.gmSaveStatus('${esc(o.id)}')">Update</button></td>
+  </tr>`).join("")}</tbody></table></div>`:'<div class="empty">No orders found.</div>';
+ }catch(err){const target=$("staffOrders");if(target)target.innerHTML=`<div class="notice error">${esc(err.message)}</div>`;}
+}
+window.gmSaveStatus=async id=>{
+ if(!isStaff())return;
+ const status=$("status-"+id)?.value;
+ try{
+  await updateDoc(doc(db,"orders",id),{status,updatedAt:serverTimestamp(),updatedBy:user.uid});
+  toast("Order status updated.");
+ }catch(err){toast(err.message||"Could not update order.");}
+};
+
+function exportCSV(){
+ if(!isStaff())return;
+ const rows=[["Name","Category","Pack","Price","MRP","Stock","Offer","Active","Image"]];
+ products.forEach(p=>rows.push([p.name,p.category,p.pack,p.price,p.mrp,p.stock,p.offer,p.active,p.image]));
+ const csv=rows.map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\r\n");
+ const url=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));
+ const a=document.createElement("a");a.href=url;a.download="green-mart-v4-catalogue.csv";a.click();URL.revokeObjectURL(url);
+}
+
+async function refreshStaff(){
+ staff=null;
+ if(user){
+  try{
+   const snap=await getDoc(doc(db,"staff",user.uid));
+   if(snap.exists()&&snap.data().active===true)staff=snap.data();
+  }catch(e){console.error("Staff authorization lookup failed",e)}
+ }
+ staffDashboard();
+}
+function startProductListener(){
+ if(unsubscribeProducts)unsubscribeProducts();
+ unsubscribeProducts=onSnapshot(collection(db,"products"),snap=>{
+  products=snap.docs.map(d=>productData(d.data(),d.id));
+  renderProducts();renderCart();renderInventory();staffDashboard();
+ },err=>{
+  $("productGrid").innerHTML=`<div class="notice error">Could not load catalogue: ${esc(err.message)}. Check Firestore rules.</div>`;
+ });
+}
+function startSettingsListener(){
+ onSnapshot(doc(db,"settings","store"),snap=>{
+  if(snap.exists()){
+   const d=snap.data();
+   store={name:d.name||"Green Mart V4",latitude:d.latitude??null,longitude:d.longitude??null,radiusKm:5};
+  }
+ });
+}
+function startCustomerOrders(){
+ if(unsubscribeCustomerOrders){unsubscribeCustomerOrders();unsubscribeCustomerOrders=null}
+ if(!user){renderCustomerOrders([]);return}
+ const q=query(collection(db,"orders"),where("customerUid","==",user.uid),limit(50));
+ unsubscribeCustomerOrders=onSnapshot(q,snap=>{
+  const rows=snap.docs.map(d=>({id:d.id,...d.data()}));
+  rows.sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0));
+  renderCustomerOrders(rows);
+ },err=>{$("customerOrders").innerHTML=`<div class="notice error">${esc(err.message)}</div>`});
+}
+onAuthStateChanged(auth,async u=>{
+ user=u;staff=null;
+ $("loginButton").textContent=u?(u.email||"Account")+" · Sign out":"Login / Account";
+ $("loginButton").onclick=async()=>{
+  if(auth.currentUser){
+   try{await signOut(auth);toast("Signed out.");}catch(e){toast(e.message)}
+  }else openDialog("authOverlay");
+ };
+ await refreshStaff();
+ startCustomerOrders();
+});
+
+renderCategories();
+renderProducts();
 renderCart();
+startProductListener();
+startSettingsListener();
 </script>
 </body>
 </html>
